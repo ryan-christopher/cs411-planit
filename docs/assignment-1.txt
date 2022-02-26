@@ -1,0 +1,26 @@
+Assignment 1: Pitches
+Section: A5
+Team Number: 2
+Team Members: Abdul Ka, Jayden Font, Kevin Martin, Lauren Pearson, Rachel Ferrigno, Ryan Christopher
+
+Pitch #1:
+For our project, we would like to create a webapp that gets a user's location, asks them for their 
+preferences of what they want to do, and a list of suggested activities would be presented to them 
+determined from their input. The application could suggest an activity like a concert nearby if a 
+user wants to go to something music related, a park if they want to do something outside, or a 
+restaurant if they want to get something to eat. In addition to their input, local weather would also 
+influence what might be suggested, so in summer it wouldn’t recommend going snowboarding and playing 
+basketball outdoors wouldn’t be recommended during a storm. Our API calls would include items like what 
+the weather would be depending on the users location through a service like WeatherAPI, estimates on 
+how long it would take to walk, bike, or take a train through a service like the V3 API from MBTA, and 
+local restaurants and businesses through the Yelp API.
+
+Pitch #2:
+Another project that we find interesting is a webapp that tackles the issues associated with streaming 
+through platforms such as Twitch or Youtube and music being played during a stream. Streamers often 
+like to play music that they enjoy during their time broadcasting to their audience, however DMCA strikes 
+and copyrighted music can often get them into legal trouble. Our app would document what is being played 
+during a stream, determine if record labels need to be attributed, and properly display that information 
+while a song is being played. Music would be gathered and documented through an API such as Spinitron 
+(a playlist management and documentation system) and Shazam, and we would use the Spotify API to create 
+ready-for-streaming playlists for users depending on their preferred musical genres. 
