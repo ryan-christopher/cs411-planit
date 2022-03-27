@@ -1,0 +1,5 @@
+# Assignment 2: User Story 2
+
+## As a food critic I want to discover new restaurants in order to review them for my audience.
+
+I am a food critic and I run a popular blog about restaurants that I go to that is read by a large audience. I want a new way to find places to make content for my readers, and I feel that current apps on the market don’t give me enough options to filter search results. I go to the app, then when I am prompted to determine which type of activity I’d like to do I select “find somewhere to eat.” I am presented with a large variety of restaurants near me. I live in the city and rely on public transportation, so I adjust the range of results to be close to my location. Once I select a restaurant, I am presented with a link to its website, as well as its address and contact information. I use the app to navigate to the restaurant via public transportation, and I eat there happily. Later, once I’m home, I realize that I’m going to need to go back to the restaurant’s website in order to write my blog post. I reopen the app and see that it has saved my recent choices, and I am easily able to find the restaurant I went to.

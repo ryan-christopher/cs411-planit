@@ -1,2 +1,5 @@
 # Assignment 2: User Story 1
 
+## As an athlete I want to find outdoor activities nearby in order to stay healthy. 
+
+I often like to have variety with where I play sports and work out, but finding new places near me can often be difficult. When I go to the app, I want to be able to easily see where there are parks and fields located along with gyms for rainy days. By accessing my location the app will then use API calls to determine nearby locations that are marked for physical activity. Places such as basketball courts, baseball fields, gyms, and parks would then be found and will display the ones found within a certain distance. From there I can determine which place I want to go to depending on the type of activity and proximity to my current location. I can now easily see my list of options and their locations, and I choose a park with a basketball court that I have not heard of before. I can now explore new areas near me for working out and playing sports without the hassle of searching around a map.

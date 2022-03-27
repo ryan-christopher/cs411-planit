@@ -1,0 +1,5 @@
+# Assignment 2: User Story 5
+
+## As a user I want to see multiple types of activities I can do in order to avoid bouncing between services.
+
+When I am looking for something to do, I often have to bounce between Google Maps, Yelp,  Apple Maps, Ticketmaster, Eventbrite, and others in order to see what is out there. With the app, I will be able to log in, choose a date that I want to plan for, and build an itinerary of multiple activity types all within one place. I will be able to see what times I have free and will be busy with what I have chosen to do which will prevent me from choosing more than one thing at a time of day. My day could include going out for breakfast to a new local spot, seeing a movie, going out to a park, finding a restaurant for a late lunch, and then seeing a concert and I’ll be positive I have time for all of it with the app. I won’t have to worry about the hassle of tracking what I want to do through multiple platforms, and in the end I will save time while planning for a  day of activities. 
