@@ -1,4 +1,4 @@
-# cs411-project
+# CS411 Project
 Repository for the CS411 project.
 
 Section A5
