@@ -1,23 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { CgArrowLongDownR } from 'react-icons/cg';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
+  const [status, setStatus] = useState(null);
+
+  const getLocation = () => {
+    if (!navigator.geolocation) {
+      setStatus('Geolocation is not supported by your browser');
+    } else {
+      setStatus('Locating...');
+      navigator.geolocation.getCurrentPosition((position) => {
+        setStatus(null);
+        setLat(position.coords.latitude);
+        setLng(position.coords.longitude);
+      }, () => {
+        setStatus('Unable to retrieve your location');
+      });
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App-header">
+      <div className="App">
+        <h2> <CgArrowLongDownR class="arrowDown" /> </h2>
+        <button onClick={getLocation}>get location</button>
+        <p>{status}</p>
+        {lat && <p>Latitude: {lat}</p>}
+        {lng && <p>Longitude: {lng}</p>}
+      </div>
     </div>
   );
 }
