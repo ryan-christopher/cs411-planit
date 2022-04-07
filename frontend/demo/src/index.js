@@ -5,6 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 document.title = "CS411 Project";
+window.addEventListener('load', () => {
+  const preload = document.querySelector('.preload');
+  preload.classList.add('preload-finish');
+})
 
 ReactDOM.render(
   <React.StrictMode>

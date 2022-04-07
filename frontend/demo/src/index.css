@@ -14,3 +14,73 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.preload {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+}
+
+.preload-finish {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s ease 2s;
+}
+
+#loading-pic {
+  height: 15em;
+  color: #ffffff;
+  white-space: nowrap;
+  -webkit-animation: preload-label 2s 10 cubic-bezier(0.2, 0.6, 0.3, 1);
+  -moz-animation: preload-label 2s 10 cubic-bezier(0.2, 0.6, 0.3, 1);
+  animation: preload-label 2s 10 cubic-bezier(0.2, 0.6, 0.3, 1);
+}
+
+@-webkit-keyframes preload-label {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes preload-label {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes preload-label {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -2,19 +2,9 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #232528;
+  background-color: #1b1b1b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -57,7 +47,7 @@ button:hover {
 }
 
 .arrowDown {
-  font-size: 45px;
+  font-size: 55px;
   animation: bounce 3s infinite;
 }
 
@@ -79,4 +69,15 @@ button:hover {
   90% {
     transform: translateY(-10px);
   }
+}
+
+img.sad-response {
+  width: 200px;
+  height: 200px;
+}
+
+div#response {
+  min-height: 100px;
+  padding-top: 100px;
+  min-width: 200px;
 }

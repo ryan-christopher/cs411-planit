@@ -11,13 +11,14 @@ const App = () => {
     if (!navigator.geolocation) {
       setStatus('Geolocation is not supported by your browser');
     } else {
-      setStatus('Locating...');
       navigator.geolocation.getCurrentPosition((position) => {
         setStatus(null);
         setLat(position.coords.latitude);
         setLng(position.coords.longitude);
       }, () => {
         setStatus('Unable to retrieve your location');
+        var pic = document.getElementById("response")
+        pic.innerHTML = '<img class="sad-response" src="sad-face.png"/>'
       });
     }
   }
@@ -25,7 +26,7 @@ const App = () => {
   return (
     <div className="App-header">
       <div className="App">
-        <h2> <CgArrowLongDownR class="arrowDown" /> </h2>
+        <div id="response"> <CgArrowLongDownR className="arrowDown" /> </div>
         <button onClick={getLocation}>get location</button>
         <p>{status}</p>
         {lat && <p>Latitude: {lat}</p>}
