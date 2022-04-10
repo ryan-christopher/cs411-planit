@@ -38,6 +38,9 @@ code {
   height: 15em;
   color: #ffffff;
   white-space: nowrap;
+}
+
+.load-anim {
   -webkit-animation: preload-label 2s 10 cubic-bezier(0.2, 0.6, 0.3, 1);
   -moz-animation: preload-label 2s 10 cubic-bezier(0.2, 0.6, 0.3, 1);
   animation: preload-label 2s 10 cubic-bezier(0.2, 0.6, 0.3, 1);

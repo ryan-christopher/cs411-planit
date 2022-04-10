@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CgArrowLongDownR } from 'react-icons/cg';
 import '../App.css';
 import Navbar from '../components/Navbar'
+import Preloader from '../components/Preloader';
 var axios = require("axios");
 
 const AppPage = () => {
@@ -61,6 +62,7 @@ const AppPage = () => {
 
     return (
         <div>
+            <Preloader />
             <Navbar />
             <div className="App-header">
                 <div className="App">

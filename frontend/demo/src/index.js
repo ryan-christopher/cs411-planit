@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
 document.title = "Planit";
+
 window.addEventListener('load', () => {
   const preload = document.querySelector('.preload');
   preload.classList.add('preload-finish');
