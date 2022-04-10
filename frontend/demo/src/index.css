@@ -25,7 +25,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 15;
+  z-index: 150;
 }
 
 .preload-finish {
