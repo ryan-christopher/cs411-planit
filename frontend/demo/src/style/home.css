@@ -13,12 +13,16 @@ div#carousel {
     width: 200vw;
     min-width: 3000px;
     transform: translateX(-100vw);
-    animation: slide 25s linear 1s infinite normal;
+    animation: slide 20s linear 1s infinite normal;
 }
 
 @media screen and (max-width: 1500px) {
     div#carousel {
-        animation: fixslide 25s linear 1s infinite normal;
+        animation: fixslide 20s linear 1s infinite normal;
+    }
+
+    #carousel>img {
+        margin-top: 12px;
     }
 }
 
@@ -47,13 +51,13 @@ div#carousel {
     min-width: 75px;
     height: 5vw;
     min-height: 75px;
-    padding-top: 6px;
+    margin-top: 8px;
     display: inline-block;
 }
 
 div.spacer {
-    width: 5vw;
-    min-width: 75px;
+    width: 15vw;
+    min-width: 225px;
     height: 5vw;
     min-height: 75px;
     display: inline-block;

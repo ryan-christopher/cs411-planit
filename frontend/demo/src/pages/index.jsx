@@ -22,46 +22,25 @@ function Home() {
 
                     <div id="carousel">
                         {/* FIRST HALF BANNER */}
-                        <img id="carousel-pic-1" src="pictures/icon-bar-drinks.png" alt="bars" />
+                        <img src="pictures/icon-bar-drinks.png" alt="bars" />
                         <div className="spacer"></div>
-                        <img id="carousel-pic-2" src="pictures/icon-coffee.png" alt="coffee" />
+                        <img src="pictures/icon-coffee.png" alt="coffee" />
                         <div className="spacer"></div>
-                        <img id="carousel-pic-3" src="pictures/icon-concert.png" alt="concerts" />
+                        <img src="pictures/icon-concert.png" alt="concerts" />
                         <div className="spacer"></div>
-                        <img id="carousel-pic-4" src="pictures/icon-food-2.png" alt="food" />
+                        <img src="pictures/icon-food-2.png" alt="food" />
                         <div className="spacer"></div>
-                        <img id="carousel-pic-5" src="pictures/icon-food.png" alt="food" />
+                        <img src="pictures/icon-food.png" alt="food" />
                         <div className="spacer"></div>
-                        <img id="carousel-pic-1" src="pictures/icon-bar-drinks.png" alt="bars" />
+                        <img src="pictures/icon-bar-drinks.png" alt="bars" />
                         <div className="spacer"></div>
-                        <img id="carousel-pic-2" src="pictures/icon-coffee.png" alt="coffee" />
+                        <img src="pictures/icon-coffee.png" alt="coffee" />
                         <div className="spacer"></div>
-                        <img id="carousel-pic-3" src="pictures/icon-concert.png" alt="concerts" />
+                        <img src="pictures/icon-concert.png" alt="concerts" />
                         <div className="spacer"></div>
-                        <img id="carousel-pic-4" src="pictures/icon-food-2.png" alt="food" />
+                        <img src="pictures/icon-food-2.png" alt="food" />
                         <div className="spacer"></div>
-                        <img id="carousel-pic-5" src="pictures/icon-food.png" alt="food" />
-                        <div className="spacer"></div>
-                        {/* SECOND HALF BANNER */}
-                        <img id="carousel-pic-1" src="pictures/icon-bar-drinks.png" alt="bars" />
-                        <div className="spacer"></div>
-                        <img id="carousel-pic-2" src="pictures/icon-coffee.png" alt="coffee" />
-                        <div className="spacer"></div>
-                        <img id="carousel-pic-3" src="pictures/icon-concert.png" alt="concerts" />
-                        <div className="spacer"></div>
-                        <img id="carousel-pic-4" src="pictures/icon-food-2.png" alt="food" />
-                        <div className="spacer"></div>
-                        <img id="carousel-pic-5" src="pictures/icon-food.png" alt="food" />
-                        <div className="spacer"></div>
-                        <img id="carousel-pic-1" src="pictures/icon-bar-drinks.png" alt="bars" />
-                        <div className="spacer"></div>
-                        <img id="carousel-pic-2" src="pictures/icon-coffee.png" alt="coffee" />
-                        <div className="spacer"></div>
-                        <img id="carousel-pic-3" src="pictures/icon-concert.png" alt="concerts" />
-                        <div className="spacer"></div>
-                        <img id="carousel-pic-4" src="pictures/icon-food-2.png" alt="food" />
-                        <div className="spacer"></div>
-                        <img id="carousel-pic-5" src="pictures/icon-food.png" alt="food" />
+                        <img src="pictures/icon-food.png" alt="food" />
                         <div className="spacer"></div>
                     </div>
                 </div>
