@@ -1,0 +1,66 @@
+div#landing {
+    background-image: url("../../public/pictures/timelapse-pic.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+div#carousel {
+    overflow-x: hidden;
+    position: relative;
+    background-color: #f1faee9a;
+    height: 100px;
+    width: 200vw;
+    min-width: 3000px;
+    transform: translateX(-100vw);
+    animation: slide 25s linear 1s infinite normal;
+}
+
+@media screen and (max-width: 1500px) {
+    div#carousel {
+        animation: fixslide 25s linear 1s infinite normal;
+    }
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(-100vw);
+    }
+
+    to {
+        transform: translateX(0vw);
+    }
+}
+
+@keyframes fixslide {
+    from {
+        transform: translateX(-1500px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+#carousel>img {
+    width: 5vw;
+    min-width: 75px;
+    height: 5vw;
+    min-height: 75px;
+    padding-top: 6px;
+    display: inline-block;
+}
+
+div.spacer {
+    width: 5vw;
+    min-width: 75px;
+    height: 5vw;
+    min-height: 75px;
+    display: inline-block;
+}
+
+img#landingpic {
+    padding-top: 0px;
+    padding-bottom: 10vh;
+
+}

@@ -6,13 +6,21 @@
 body {
     background-color: #1b1b1b;
     color: white;
+    overflow-x: hidden;
 }
 
 h1 {
     font-family: "Takota";
     font-size: 100px;
-    letter-spacing: 7px;
-    padding-top: calc(5vh + 70px);
+    letter-spacing: 3px;
+    padding-top: calc(5vh + 90px);
+    margin: 0px;
+}
+
+h2 {
+    font-family: "Takota";
+    font-size: 80px;
+    margin-top: 0;
 }
 
 #landingmask {
@@ -24,15 +32,91 @@ h1 {
 div.header-section {
     width: 100vw;
     min-height: 100vh;
-    background-image: url("../../public/pictures/timelapse-pic.jpg");
-    background-position: center;
+}
+
+div#team {
+    background-image: url("../../public/pictures/boston-pic.jpg");
+    background-position: top;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-div#carousel {
+.flex-container-left-right {
     display: flex;
     flex-direction: row;
-    overflow: hidden;
-    align-items: center;
+    font-size: 30px;
+    text-align: center;
+}
+
+.flex-container-right-left {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 30px;
+    text-align: center;
+}
+
+.flex-item-left {
+    padding: 0px;
+    flex: 50%;
+}
+
+.flex-item-right {
+    padding: 0px;
+    flex: 50%;
+}
+
+img.pfp {
+    width: 155px;
+    height: 150px;
+    background: white;
+    border-radius: 50%;
+}
+
+div#content {
+    background-color: rgba(0, 0, 0, 0.549);
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border-radius: 10px;
+    width: 80vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.line {
+    height: 1px;
+    border-radius: 0px;
+    color: white;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 1px;
+    margin: 30px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    height: 2px;
+    width: 30vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 1000px) {
+    .flex-container-left-right {
+        flex-direction: column;
+    }
+
+    .flex-container-right-left {
+        flex-direction: column;
+    }
+
+    h3.footertext {
+        margin-top: 0px;
+    }
+
+    h4.footertextsmall {
+        padding-bottom: 20px;
+    }
 }
