@@ -2,7 +2,6 @@ import React from 'react'
 import '../style/index.css';
 
 function Preloader() {
-    console.log("yo")
     if (document.readyState === "complete") {
         const preload = document.querySelector('.preload');
         const loadpic = document.getElementById('loading-pic');

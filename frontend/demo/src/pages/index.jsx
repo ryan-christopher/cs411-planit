@@ -17,6 +17,8 @@ function Home() {
 
                     <img src="pictures/planit-logo.png" alt="The planit logo." id="landingpic" />
 
+                    <h3>life moves fast, we help you plan it</h3>
+
 
                     <div id="carousel">
                         {/* FIRST HALF BANNER */}
@@ -64,7 +66,6 @@ function Home() {
                     </div>
                 </div>
             </div>
-
         </div>
 
     )

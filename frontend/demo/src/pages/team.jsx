@@ -24,7 +24,13 @@ function Team() {
                                 <img src="pictures/cat.png" alt="Abdul." className="pfp" />
                             </div>
                             <div className="flex-item-right">
-                                <p>hey</p>
+                                <p>
+                                    Role - Frontend
+                                    <br /><br />
+                                    Likes - Computers, Music, Long walks on the beach
+                                    <br /><br />
+                                    Dislikes - Sand
+                                </p>
                             </div>
                         </div>
 
@@ -36,7 +42,13 @@ function Team() {
                                 <img src="pictures/cat.png" alt="Abdul." className="pfp" />
                             </div>
                             <div className="flex-item-right">
-                                <p>yo</p>
+                                <p>
+                                    Role - Frontend
+                                    <br /><br />
+                                    Likes - Computers, Music, Long walks on the beach
+                                    <br /><br />
+                                    Dislikes - Sand
+                                </p>
                             </div>
                         </div>
 
@@ -48,7 +60,13 @@ function Team() {
                                 <img src="pictures/cat.png" alt="Abdul." className="pfp" />
                             </div>
                             <div className="flex-item-right">
-                                <p>hey</p>
+                                <p>
+                                    Role - Frontend
+                                    <br /><br />
+                                    Likes - Computers, Music, Long walks on the beach
+                                    <br /><br />
+                                    Dislikes - Sand
+                                </p>
                             </div>
                         </div>
 
@@ -60,7 +78,13 @@ function Team() {
                                 <img src="pictures/cat.png" alt="Abdul." className="pfp" />
                             </div>
                             <div className="flex-item-right">
-                                <p>yo</p>
+                                <p>
+                                    Role - Frontend
+                                    <br /><br />
+                                    Likes - Computers, Music, Long walks on the beach
+                                    <br /><br />
+                                    Dislikes - Sand
+                                </p>
                             </div>
                         </div>
 
@@ -72,7 +96,13 @@ function Team() {
                                 <img src="pictures/cat.png" alt="Abdul." className="pfp" />
                             </div>
                             <div className="flex-item-right">
-                                <p>hey</p>
+                                <p>
+                                    Role - Frontend
+                                    <br /><br />
+                                    Likes - Computers, Music, Long walks on the beach
+                                    <br /><br />
+                                    Dislikes - Sand
+                                </p>
                             </div>
                         </div>
 
@@ -80,11 +110,17 @@ function Team() {
 
                         <div className="flex-container-right-left">
                             <div className="flex-item-left">
-                                <h2>Ryan</h2>
+                                <h2>ryan</h2>
                                 <img src="pictures/cat.png" alt="Abdul." className="pfp" />
                             </div>
                             <div className="flex-item-right">
-                                <p>yo</p>
+                                <p>
+                                    Role - Frontend
+                                    <br /><br />
+                                    Likes - Computers, Music, Long walks on the beach
+                                    <br /><br />
+                                    Dislikes - Sand
+                                </p>
                             </div>
                         </div>
 

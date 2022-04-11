@@ -21,12 +21,19 @@ h2 {
     font-family: "Takota";
     font-size: 80px;
     margin-top: 0;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
 }
 
 #landingmask {
     width: 100vw;
     min-height: 100vh;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 div.header-section {
@@ -102,10 +109,36 @@ div#content {
     margin-right: auto;
 }
 
+.flex-container-left-right>.flex-item-right>p {
+    margin-top: 110px;
+    text-align: right;
+    margin-right: 300px;
+    font-size: 25px;
+}
+
+.flex-container-right-left>.flex-item-right>p {
+    margin-top: 110px;
+    text-align: left;
+    margin-left: 300px;
+    font-size: 25px;
+}
+
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 1000px) {
     .flex-container-left-right {
         flex-direction: column;
+    }
+
+    .flex-container-left-right>.flex-item-right>p {
+        margin-top: 10px;
+        text-align: center;
+        margin-right: 0px;
+    }
+
+    .flex-container-right-left>.flex-item-right>p {
+        margin-top: 10px;
+        text-align: center;
+        margin-left: 0px;
     }
 
     .flex-container-right-left {
