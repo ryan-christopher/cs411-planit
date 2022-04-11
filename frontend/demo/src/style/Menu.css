@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Takota";
+    src: url("./takota-font/Takota-BRa8.ttf") format("truetype");
+}
+
 .mask {
     height: 100%;
     width: 100%;
@@ -55,13 +60,14 @@
 
 .mobilemenu-link {
     color: white;
+    font-family: "Takota";
     text-transform: uppercase;
     text-decoration: none;
-    margin-top: 12.5vh;
-    margin-bottom: 12.5vh;
-    padding: 20px 10px;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    padding: 10px 10px;
     width: 15vw;
-    font-size: 25px;
+    font-size: 45px;
     text-align: center;
     border: 2px solid black;
     display: block;
@@ -71,8 +77,8 @@
 }
 
 .mobilemenu-link:hover {
-    border-bottom: 2px solid white;
-    border-top: 2px solid white;
+    border-bottom: 2px solid #BB0502;
+    border-top: 2px solid #BB0502;
     transform: scale(1.1);
     transition: all 0.45s;
 }
@@ -164,7 +170,8 @@
     -ms-transform: rotate(46deg) translate(5px, 5px);
     -o-transform: rotate(46deg) translate(5px, 5px);
     transform: rotate(46deg) translate(5px, 5px);
-    background: white;
+    background: #BB0502;
+    ;
 }
 
 .mobilebutton.active .burgermiddle {
@@ -177,7 +184,7 @@
     -ms-transform: rotate(-46deg) translate(8px, -10px);
     -o-transform: rotate(-46deg) translate(8px, -10px);
     transform: rotate(-46deg) translate(8px, -10px);
-    background: white;
+    background: #BB0502;
 }
 
 .mobilebutton .burgertop,
@@ -197,6 +204,12 @@
     visibility: visible;
     opacity: 1;
     transition: all 0.5s;
+}
+
+.mobilebutton:hover>.burgerbottom,
+.mobilebutton:hover>.burgermiddle,
+.mobilebutton:hover>.burgertop {
+    background-color: #BB0502;
 }
 
 @media screen and (max-width:10px) {
@@ -258,4 +271,10 @@ ul>li>ul.activesubmenu {
     margin-top: 10px;
     margin-left: 10px;
     width: 50px;
+    transition: all 0.5s;
+}
+
+.cornerlogo>img:hover {
+    transform: scale(1.2);
+    transition: all 0.5s;
 }

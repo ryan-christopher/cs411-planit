@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CgArrowLongDownR } from 'react-icons/cg';
-import '../App.css';
+import '../style/App.css';
 import Navbar from '../components/Navbar'
 import Preloader from '../components/Preloader';
 var axios = require("axios");

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Menu.css';
+import '../style/Menu.css';
 import { Link } from 'react-router-dom';
 import $ from 'jquery'
 
@@ -25,7 +25,7 @@ function Navbar() {
                         <Link className="mobilemenu-link" to="/">Home</Link>
                         <Link className="mobilemenu-link" to="/app">Planit</Link>
                         <Link className="mobilemenu-link" to="/team">The Team</Link>
-                        <Link className="mobilemenu-link" to="/about">About Planit</Link>
+                        <Link className="mobilemenu-link" to="/about">About</Link>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,6 @@ function Navbar() {
 (function () {
     //$(".mobilemenu-group").click(function () {
     $(document).on("click", ".mobilemenu-group", function () {
-        console.log("test")
         $(this).find(".mobilemenu-section").toggleClass('active');
         $(".mobilemenu-overlay").toggleClass('active');
     });

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../index.css';
+import '../style/index.css';
 
 function Preloader() {
     console.log("yo")
@@ -9,7 +9,7 @@ function Preloader() {
         loadpic.classList.toggle("load-anim");
         setTimeout(() => { loadpic.classList.toggle("load-anim"); }, 100);
         preload.classList.toggle('preload-finish');
-        setTimeout(() => { preload.classList.toggle('preload-finish') }, 300);
+        setTimeout(() => { preload.classList.toggle('preload-finish') }, 100);
     }
 
     return (
