@@ -12,6 +12,7 @@ window.addEventListener('load', () => {
   preload.classList.add('preload-finish');
 })
 
+
 ReactDOM.render(
   <BrowserRouter>
     <App />

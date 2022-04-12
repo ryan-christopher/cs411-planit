@@ -109,6 +109,23 @@ div#content {
     margin-right: auto;
 }
 
+.thinline {
+    height: 1px;
+    border-radius: 0px;
+    color: white;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 1px;
+    margin: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 2px;
+    width: 30vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .flex-container-left-right>.flex-item-right>p {
     margin-top: 110px;
     text-align: right;
