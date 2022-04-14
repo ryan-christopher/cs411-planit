@@ -1,5 +1,7 @@
-import React from 'react'
 import '../style/index.css';
+
+
+
 
 function Preloader() {
     if (document.readyState === "complete") {
@@ -10,11 +12,6 @@ function Preloader() {
         preload.classList.toggle('preload-finish');
         setTimeout(() => { preload.classList.toggle('preload-finish') }, 100);
     }
-
-    return (
-        <div>
-        </div>
-    )
 }
 
 export default Preloader

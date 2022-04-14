@@ -25,45 +25,46 @@ function Home() {
 
                     <Signup />
 
-                </div>
-                <div id="carousel" className="animated">
-                    <img src="pictures/icon-bar-drinks.png" alt="bars" />
-                    <div className="spacer"></div>
-                    <img src="pictures/icon-coffee.png" alt="coffee" />
-                    <div className="spacer"></div>
-                    <img src="pictures/icon-concert.png" alt="concerts" />
-                    <div className="spacer"></div>
-                    <img src="pictures/icon-food-2.png" alt="food" />
-                    <div className="spacer"></div>
-                    <img src="pictures/icon-food.png" alt="food" />
-                    <div className="spacer"></div>
-                    <img src="pictures/icon-bar-drinks.png" alt="bars" />
-                    <div className="spacer"></div>
-                    <img src="pictures/icon-coffee.png" alt="coffee" />
-                    <div className="spacer"></div>
-                    <img src="pictures/icon-concert.png" alt="concerts" />
-                    <div className="spacer"></div>
-                    <img src="pictures/icon-food-2.png" alt="food" />
-                    <div className="spacer"></div>
-                    <img src="pictures/icon-food.png" alt="food" />
-                    <div className="spacer"></div>
+                    <div id="carousel" className="animated">
+                        <img src="pictures/icon-bar-drinks.png" alt="bars" />
+                        <div className="spacer"></div>
+                        <img src="pictures/icon-coffee.png" alt="coffee" />
+                        <div className="spacer"></div>
+                        <img src="pictures/icon-concert.png" alt="concerts" />
+                        <div className="spacer"></div>
+                        <img src="pictures/icon-food-2.png" alt="food" />
+                        <div className="spacer"></div>
+                        <img src="pictures/icon-food.png" alt="food" />
+                        <div className="spacer"></div>
+                        <img src="pictures/icon-bar-drinks.png" alt="bars" />
+                        <div className="spacer"></div>
+                        <img src="pictures/icon-coffee.png" alt="coffee" />
+                        <div className="spacer"></div>
+                        <img src="pictures/icon-concert.png" alt="concerts" />
+                        <div className="spacer"></div>
+                        <img src="pictures/icon-food-2.png" alt="food" />
+                        <div className="spacer"></div>
+                        <img src="pictures/icon-food.png" alt="food" />
+                        <div className="spacer"></div>
+                    </div>
+
                 </div>
                 <div className="threecolflex">
                     <div className="flexcol1">
                         <div className="colmask">
-                            <h3 className="colheader">hello</h3>
+                            <h3 className="colheader">NEW</h3>
                         </div>
 
                     </div>
                     <div className="flexcol2">
                         <div className="colmask">
-                            <h3 className="colheader">hello</h3>
+                            <h3 className="colheader">FUN</h3>
                         </div>
 
                     </div>
                     <div className="flexcol3">
                         <div className="colmask">
-                            <h3 className="colheader">hello</h3>
+                            <h3 className="colheader">EASY</h3>
                         </div>
 
                     </div>

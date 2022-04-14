@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { CgArrowLongDownR } from 'react-icons/cg';
 import '../style/App.css';
 import Navbar from '../components/Navbar'
-import Preloader from '../components/Preloader';
 var axios = require("axios");
 
 const AppPage = () => {
@@ -59,24 +58,25 @@ const AppPage = () => {
             })
     }
 
-
     return (
         <div>
-            <Preloader />
-            <Navbar />
-            <div className="App-header">
-                <div className="App">
-                    <div id="response"> <CgArrowLongDownR className="arrowDown" /> </div>
-                    <button onClick={getLocation}>get location</button>
-                    <p>{status}</p>
-                    {lat && <p>Latitude: {lat}</p>}
-                    {lng && <p>Longitude: {lng}</p>}
-                    <p>Enter an MBTA Bus or Train Line:</p>
-                    <input type="text" onChange={(e) => setMBTAInput(e.target.value)} value={MBTAInput}></input>
-                    <p />
-                    <button onClick={getLineData}>get MBTA line endpoints</button>
-                    {MBTALine && !invalidLine && <p>{MBTALine['data']['attributes']['direction_destinations'][0]} - {MBTALine['data']['attributes']['direction_destinations'][1]}</p>}
-                    {invalidLine && <p>Error 404: Line named "{MBTAInput}" not found</p>}
+
+            <div className="background">
+                <Navbar />
+                <div className="App-header">
+                    <div className="App">
+                        <div id="response"> <CgArrowLongDownR className="arrowDown" /> </div>
+                        <button onClick={getLocation}>get location</button>
+                        <p>{status}</p>
+                        {lat && <p>Latitude: {lat}</p>}
+                        {lng && <p>Longitude: {lng}</p>}
+                        <p>Enter an MBTA Bus or Train Line:</p>
+                        <input type="text" onChange={(e) => setMBTAInput(e.target.value)} value={MBTAInput}></input>
+                        <p />
+                        <button onClick={getLineData}>get MBTA line endpoints</button>
+                        {MBTALine && !invalidLine && <p>{MBTALine['data']['attributes']['direction_destinations'][0]} - {MBTALine['data']['attributes']['direction_destinations'][1]}</p>}
+                        {invalidLine && <p>Error 404: Line named "{MBTAInput}" not found</p>}
+                    </div>
                 </div>
             </div>
         </div>

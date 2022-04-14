@@ -4,7 +4,7 @@
 
 
 .App-header {
-  background-color: #1b1b1b;
+  background-color: hsla(0, 0%, 0%, 0.6);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -80,4 +80,11 @@ div#response {
   min-height: 100px;
   padding-top: 100px;
   min-width: 200px;
+}
+
+div.background {
+  background-image: url("../../public/pictures/chalkboard-bg.png");
+  background-position: top;
+  background-attachment: fixed;
+  background-size: cover;
 }

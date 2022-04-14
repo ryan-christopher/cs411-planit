@@ -2,8 +2,13 @@ import React from 'react'
 import '../style/Menu.css';
 import { Link } from 'react-router-dom';
 import $ from 'jquery'
+import Preloader from '../components/Preloader';
+import { useLocation } from 'react-router-dom';
 
 function Navbar() {
+    const location = useLocation();
+    console.log(location.pathname);
+
     return (
         <div>
             <Link to="/" className="cornerlogo">
@@ -22,15 +27,45 @@ function Navbar() {
                 <div className="mobilemenu-body">
                     <div className="mobilemenu-overlay"></div>
                     <div className="mobilemenu-container">
-                        <Link className="mobilemenu-link" to="/">Home</Link>
-                        <Link className="mobilemenu-link" to="/app">Planit</Link>
+                        {location.pathname === "/" && <div>
+                            <Link className="mobilemenu-link" to="#" >Home</Link>
+                            <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
+                            <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
+                            <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
+                        </div>
+                        }
+                        {location.pathname === "/app" && <div>
+                            <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                            <Link className="mobilemenu-link" to="/app">Planit</Link>
+                            <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
+                            <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
+                        </div>
+                        }
+                        {location.pathname === "/team" && <div>
+                            <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                            <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
+                            <Link className="mobilemenu-link" to="/team">The Team</Link>
+                            <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
+                        </div>
+                        }
+                        {location.pathname === "/about" && <div>
+                            <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                            <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
+                            <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
+                            <Link className="mobilemenu-link" to="/about">About</Link>
+                        </div>
+                        }
+                        {/** 
+                        <Link className="mobilemenu-link" to="/" onClick={Preloader} >Home</Link>
+                        <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
                         <Link className="mobilemenu-link" to="/team">The Team</Link>
                         <Link className="mobilemenu-link" to="/about">About</Link>
+                        */}
                     </div>
                 </div>
             </div>
             <div className="mask"></div>
-        </div>
+        </div >
     )
 }
 

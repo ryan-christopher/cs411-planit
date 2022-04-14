@@ -1,5 +1,12 @@
+@font-face {
+    font-family: "Takota";
+    src: url("./takota-font/Takota-BRa8.ttf") format("truetype");
+}
+
+
 div#landing {
     background-image: url("../../public/pictures/timelapse-pic.jpg");
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,10 +20,11 @@ img#landingpic {
 div#carousel {
     overflow-x: hidden;
     background-color: #f1faee9a;
+    margin-top: 8vh;
+    display: block;
     height: 100px;
     width: 200vw;
     min-width: 3000px;
-    margin-top: -100px;
     transform: translateX(-100vw);
     animation: slide 25s linear 1s infinite normal;
 }
@@ -88,6 +96,7 @@ div.spacer {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
 }
 
 .flexcol2 {
@@ -96,6 +105,7 @@ div.spacer {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
 }
 
 .flexcol3 {
@@ -104,9 +114,26 @@ div.spacer {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
 }
 
 .colheader {
     margin-top: 0;
     padding-top: 15vh;
+    font-family: "Takota";
+    font-size: 75px;
+}
+
+@media screen and (max-width:1000px) {
+
+    .flexcol1,
+    .flexcol2,
+    .flexcol3 {
+        width: 100vw;
+        height: 75vh;
+    }
+
+    .threecolflex {
+        flex-direction: column;
+    }
 }
