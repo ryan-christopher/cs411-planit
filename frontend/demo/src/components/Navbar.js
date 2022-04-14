@@ -28,7 +28,7 @@ function Navbar() {
                     <div className="mobilemenu-overlay"></div>
                     <div className="mobilemenu-container">
                         {location.pathname === "/" && <div>
-                            <Link className="mobilemenu-link" to="/" >Home</Link>
+                            <Link className="mobilemenu-link" to="/" onClick={menutoggle}>Home</Link>
                             <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
                             <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
                             <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
@@ -36,7 +36,7 @@ function Navbar() {
                         }
                         {location.pathname === "/app" && <div>
                             <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
-                            <Link className="mobilemenu-link" to="/app">Planit</Link>
+                            <Link className="mobilemenu-link" to="/app" onClick={menutoggle}>Planit</Link>
                             <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
                             <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
                         </div>
@@ -44,7 +44,7 @@ function Navbar() {
                         {location.pathname === "/team" && <div>
                             <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
                             <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
-                            <Link className="mobilemenu-link" to="/team">The Team</Link>
+                            <Link className="mobilemenu-link" to="/team" onClick={menutoggle}>The Team</Link>
                             <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
                         </div>
                         }
@@ -52,7 +52,7 @@ function Navbar() {
                             <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
                             <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
                             <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
-                            <Link className="mobilemenu-link" to="/about">About</Link>
+                            <Link className="mobilemenu-link" to="/about" onClick={menutoggle}>About</Link>
                         </div>
                         }
                         {/** 
@@ -67,6 +67,12 @@ function Navbar() {
             <div className="mask"></div>
         </div >
     )
+}
+
+function menutoggle() {
+    $('.mobilemenu').toggleClass('active');
+    $('.mask').toggleClass('active')
+    $('.mobilebutton').toggleClass('active');
 }
 
 
