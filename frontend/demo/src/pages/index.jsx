@@ -1,5 +1,4 @@
 import React from 'react'
-import Preloader from '../components/Preloader'
 import Navbar from '../components/Navbar'
 import Signup from '../components/Signup'
 import "../style/pages.css"
@@ -9,7 +8,6 @@ import "../style/home.css"
 function Home() {
     return (
         <div>
-            <Preloader />
             <Navbar />
             <div className="header-section" id="landing">
                 <div id="landingmask">

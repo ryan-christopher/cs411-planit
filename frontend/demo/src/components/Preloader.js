@@ -1,8 +1,5 @@
 import '../style/index.css';
 
-
-
-
 function Preloader() {
     if (document.readyState === "complete") {
         const preload = document.querySelector('.preload');

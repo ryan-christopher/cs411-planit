@@ -6,7 +6,7 @@ import Preloader from '../components/Preloader';
 import { useLocation } from 'react-router-dom';
 
 function Navbar() {
-    const location = useLocation();
+    let location = useLocation();
     console.log(location.pathname);
 
     return (
@@ -28,7 +28,7 @@ function Navbar() {
                     <div className="mobilemenu-overlay"></div>
                     <div className="mobilemenu-container">
                         {location.pathname === "/" && <div>
-                            <Link className="mobilemenu-link" to="#" >Home</Link>
+                            <Link className="mobilemenu-link" to="/" >Home</Link>
                             <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
                             <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
                             <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
