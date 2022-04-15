@@ -58,6 +58,25 @@ const AppPage = () => {
             })
     }
 
+    const testGH = () => {
+        axios({
+            method: "post",
+            url: "http://127.0.0.1:5000/get_directions_between_coords",
+            data: {
+                "depart_lat": 42.34485634858704,
+                "depart_lon": -71.11779574361886,
+                "dest_lat": 42.27595098611197,
+                "dest_lon": -71.65047684032695
+            },
+            headers: {
+                'Content-Type': "application/json"
+            }
+        })
+        .then(function (response) {
+            console.log(response.data)
+        })
+    }
+
     return (
         <div>
 
@@ -76,10 +95,12 @@ const AppPage = () => {
                         <button onClick={getLineData}>get MBTA line endpoints</button>
                         {MBTALine && !invalidLine && <p>{MBTALine['data']['attributes']['direction_destinations'][0]} - {MBTALine['data']['attributes']['direction_destinations'][1]}</p>}
                         {invalidLine && <p>Error 404: Line named "{MBTAInput}" not found</p>}
+                        {/* Tests getting route from coordinates, delete later */}
+                        <button onClick={testGH}>Test GH</button>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
     );
 }
 
