@@ -63,10 +63,10 @@ const AppPage = () => {
             method: "post",
             url: "http://127.0.0.1:5000/get_directions_between_coords",
             data: {
-                "depart_lat": 42.34485634858704,
-                "depart_lon": -71.11779574361886,
-                "dest_lat": 42.27595098611197,
-                "dest_lon": -71.65047684032695
+                "depart_lat": 42.35079819407158,
+                "depart_lon": -71.10901412751858,
+                "dest_lat": 42.36017428184034,
+                "dest_lon": -71.05590316768416
             },
             headers: {
                 'Content-Type': "application/json"
