@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import "../style/pages.css"
 
 function About() {
@@ -8,6 +9,8 @@ function About() {
             <Navbar />
             <br />
             About!
+
+            <Footer />
 
         </div>
 

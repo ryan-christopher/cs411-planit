@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Signup from '../components/Signup'
+import Footer from '../components/Footer'
 import "../style/pages.css"
 import "../style/home.css"
 
@@ -68,6 +69,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
 
     )

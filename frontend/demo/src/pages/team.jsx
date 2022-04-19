@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import "../style/pages.css"
 
 function Team() {
@@ -127,9 +128,9 @@ function Team() {
                     <br />
                     <br />
                     <br />
-                    <img src="pictures/planit-logo.png" alt="The planit logo." id="landingpic" />
                 </div>
             </div>
+            <Footer />
         </div>
 
     )

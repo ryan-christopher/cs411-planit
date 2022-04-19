@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CgArrowLongDownR } from 'react-icons/cg';
 import '../style/App.css';
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 var axios = require("axios");
 
 const AppPage = () => {
@@ -72,9 +73,9 @@ const AppPage = () => {
                 'Content-Type': "application/json"
             }
         })
-        .then(function (response) {
-            console.log(response.data)
-        })
+            .then(function (response) {
+                console.log(response.data)
+            })
     }
 
     return (
@@ -99,8 +100,9 @@ const AppPage = () => {
                         <button onClick={testGH}>Test GH</button>
                     </div>
                 </div>
-                </div>
             </div>
+            <Footer />
+        </div>
     );
 }
 
