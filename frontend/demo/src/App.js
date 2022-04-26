@@ -5,6 +5,8 @@ import About from './pages/about';
 import Team from './pages/team';
 import Home from './pages/index';
 import React from "react";
+import Login from "./components/Login"
+import Logout from "./components/Logout"
 
 
 
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="about" element={<About />} />
         <Route path="team" element={<Team />} />
       </Routes>
+      <Login />
+      <Logout />
     </div>
   );
 }
