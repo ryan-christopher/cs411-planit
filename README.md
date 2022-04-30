@@ -24,10 +24,3 @@ For the Yelp Fusion API, you can obtain an API key by logging into your Yelp con
   </ol>
 </ol>
 
-<style>
- ol {
-  text-align:center;
-  color:red;
-  }
-  
-</style>
