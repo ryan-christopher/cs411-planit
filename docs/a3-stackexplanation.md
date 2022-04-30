@@ -1,5 +1,12 @@
-# Assignment 3: Why we chose this technology stack
-## Our stack:
-Frontend -> React
-Backend -> Flask
-Database -> SQLite
+# Assignment 3
+## Our Technology Stack
+For our technology stack, we decided to use React for our frontend, Flask for our backend, and SQLite for our database.
+
+## React Frontend
+Our choice to use React as our frontend framework forced us to get out of our comfort zones. None of our group members have used React before, and we felt it was a good reason for us to get experience working in an extremely popular frontend framework. Due to the popularity of React, we had access to extensive amounts of documentation, examples, node packages designed for React projects, and of course stack overflow questions that had been answered. Combine that with the ability to add React experience to our portfolios, we had an easy time deciding to use React as our frontend framework. The other framework we had considered was Django, as some of our team members had experience in the python framework and it is a popular full stack framework that would allow us to use python for frontend and backend. While Django is a flexible full stack framework, we felt it was more advantageous to try React as our project is a smaller scale web app that doesn't need the "batteries included" that Django has. 
+
+## Flask Backend
+The backend really only needed to be used to make API calls with a few parameters, so we didn't want to make things more complicated than they needed to be. As a result, we felt that using the Flask framework fit our requirements - a lightweight framework that has minimalistic features while also allowing us to add plugins as we need them when adding complexity to our app. As we discussed in the frontend section, we had also considered Django for our backend framework as well. Since Flask was a lighter weight option that didn't have all of the "batteries included" that Django has, we felt that using Flask was a more efficient option where we could install packages as we needed them. 
+
+## SQLite Database
+For our database, we only really needed something that could store a list of the user's favorited/liked spots and display them as a list. As our web app is a low traffic project, we felt that SQLite was a good choice. With python support through SQLAlchemy, our database is able to be locally stored with no configuration or maintenance. SQLite is fast, reliable, and simple. As Todd Howard once said: it just works. We had considered using Google's Firebase database service, as it is a powerful web-based database that has excellent documentation and examples. However the longer we looked at it, we felt that Firebase was an unnecessary given the simple requirements we needed from a database.
