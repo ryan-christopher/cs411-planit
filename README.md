@@ -23,8 +23,3 @@ For the Yelp Fusion API, you can obtain an API key by logging into your Yelp con
     <li>Run python app.py in the terminal to start the server</li>
   </ol>
 </ol>
-
-<style>
-  ol{color:red;
-      text-align:center;}
-</style>
