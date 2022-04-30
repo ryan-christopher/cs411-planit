@@ -11,7 +11,7 @@ For the Yelp Fusion API, you can obtain an API key by logging into your Yelp con
 
 ## How to run
 <ol>
-  <li> Clone the github repo</li>
+  <li style="color:red;"> Clone the github repo</li>
   <li> To run the frontend: </li>
   <ol>
     <li>Inside the frontend/demo directory, run npm install to load all dependencies.</li>
