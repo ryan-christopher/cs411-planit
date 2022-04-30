@@ -1,3 +1,5 @@
 frontend/demo/node_modules
 .vscode
 backend/.env
+frontend/.env
+frontend/node_modules
