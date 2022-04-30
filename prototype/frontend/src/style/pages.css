@@ -1,0 +1,172 @@
+@font-face {
+    font-family: "Takota";
+    src: url("./takota-font/Takota-BRa8.ttf") format("truetype");
+}
+
+body {
+    background-color: #1b1b1b;
+    color: white;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-family: "Takota";
+    font-size: 100px;
+    letter-spacing: 3px;
+    padding-top: calc(5vh + 90px);
+    margin: 0px;
+}
+
+h2 {
+    font-family: "Takota";
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+#landingmask {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+div.header-section {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+div#team {
+    background-image: url("../../public/pictures/boston-pic.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.flex-container-left-right {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+}
+
+.flex-container-right-left {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 30px;
+    text-align: center;
+}
+
+.flex-item-left {
+    padding: 0px;
+    flex: 50%;
+}
+
+.flex-item-right {
+    padding: 0px;
+    flex: 50%;
+}
+
+img.pfp {
+    width: 155px;
+    height: 150px;
+    background: white;
+    border-radius: 50%;
+}
+
+div#content {
+    background-color: rgba(0, 0, 0, 0.549);
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border-radius: 10px;
+    width: 80vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.line {
+    height: 1px;
+    border-radius: 0px;
+    color: white;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 1px;
+    margin: 30px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    height: 2px;
+    width: 30vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thinline {
+    height: 1px;
+    border-radius: 0px;
+    color: white;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 1px;
+    margin: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 2px;
+    width: 30vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flex-container-left-right>.flex-item-right>p {
+    margin-top: 110px;
+    text-align: right;
+    margin-right: 300px;
+    font-size: 25px;
+}
+
+.flex-container-right-left>.flex-item-right>p {
+    margin-top: 110px;
+    text-align: left;
+    margin-left: 300px;
+    font-size: 25px;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 1000px) {
+    .flex-container-left-right {
+        flex-direction: column;
+    }
+
+    .flex-container-left-right>.flex-item-right>p {
+        margin-top: 10px;
+        text-align: center;
+        margin-right: 0px;
+    }
+
+    .flex-container-right-left>.flex-item-right>p {
+        margin-top: 10px;
+        text-align: center;
+        margin-left: 0px;
+    }
+
+    .flex-container-right-left {
+        flex-direction: column;
+    }
+
+    h3.footertext {
+        margin-top: 0px;
+    }
+
+    h4.footertextsmall {
+        padding-bottom: 20px;
+    }
+}

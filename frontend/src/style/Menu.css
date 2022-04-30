@@ -1,0 +1,280 @@
+@font-face {
+    font-family: "Takota";
+    src: url("./takota-font/Takota-BRa8.ttf") format("truetype");
+}
+
+.mask {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: block;
+    position: fixed;
+    z-index: 102;
+    top: 0;
+    left: 100vw;
+    transition: all 0.25s;
+}
+
+.mask.active {
+    left: 0;
+    transition: all 0.25s;
+}
+
+.mobilemenu-body {
+    width: 100%;
+    height: 100vh;
+    margin-top: 80px;
+}
+
+.mobilemenu-group {
+    cursor: pointer;
+}
+
+.mobilemenu-dropdown {
+    position: relative;
+}
+
+.mobilemenu-dropdown:before {
+    height: 28px;
+    width: 18px;
+    background-repeat: no-repeat !important;
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 24px;
+}
+
+.mobilemenu-link-back {
+    position: relative;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.mobilemenu-link-back:before {
+    font-size: 15px;
+    color: white;
+    float: right;
+    position: absolute;
+    right: 12px;
+}
+
+.mobilemenu-link {
+    color: white;
+    font-family: "Takota";
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    padding: 10px 10px;
+    width: 15vw;
+    font-size: 45px;
+    text-align: center;
+    border: 2px solid black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.25s;
+}
+
+.mobilemenu-link:hover {
+    border-bottom: 2px solid #BB0502;
+    border-top: 2px solid #BB0502;
+    transform: scale(1.1);
+    transition: all 0.45s;
+}
+
+.mobilemenu-sublink {
+    padding: 25px 0 25px 10px;
+    margin-right: 40px;
+}
+
+.mobilemenu-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    display: none;
+    z-index: -1;
+}
+
+.mobilemenu-overlay:before {
+    height: 8px;
+    width: 25px;
+    top: 40px;
+    right: 5px;
+    content: "";
+    background-repeat: no-repeat !important;
+    position: absolute;
+}
+
+.mobilemenu-overlay.active {
+    display: block;
+}
+
+.mobilemenu {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    height: 100vh;
+    z-index: 103;
+    right: -50vw;
+    width: 50vw;
+}
+
+.mobilemenu.active {
+    right: 0;
+}
+
+.mobilemenu-section {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: black;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 230px;
+    padding-top: 80px;
+    right: -250px;
+}
+
+.mobilemenu-section.active {
+    right: 0;
+}
+
+.mobilemenu-sublink {
+    padding: 25px 0 25px 10px;
+    margin: 0 0 0 0;
+}
+
+.mobilebutton {
+    cursor: pointer;
+    height: 37px;
+    right: 18px;
+    top: 4px;
+    position: fixed;
+    text-align: center;
+    transform: translateX(0%);
+    width: 37px;
+    z-index: 3;
+    padding: 10px 14px 10px 14px;
+}
+
+.mobilebutton.active .burgertop {
+    -webkit-transform: rotate(46deg) translate(5px, 5px);
+    -moz-transform: rotate(46deg) translate(5px, 5px);
+    -ms-transform: rotate(46deg) translate(5px, 5px);
+    -o-transform: rotate(46deg) translate(5px, 5px);
+    transform: rotate(46deg) translate(5px, 5px);
+    background: #BB0502;
+    ;
+}
+
+.mobilebutton.active .burgermiddle {
+    opacity: 0;
+}
+
+.mobilebutton.active .burgerbottom {
+    -webkit-transform: rotate(-46deg) translate(8px, -10px);
+    -moz-transform: rotate(-46deg) translate(8px, -10px);
+    -ms-transform: rotate(-46deg) translate(8px, -10px);
+    -o-transform: rotate(-46deg) translate(8px, -10px);
+    transform: rotate(-46deg) translate(8px, -10px);
+    background: #BB0502;
+}
+
+.mobilebutton .burgertop,
+.mobilebutton .burgermiddle,
+.mobilebutton .burgerbottom {
+    width: 100%;
+    height: 2px;
+    background: white;
+    margin: 8px auto;
+    backface-visibility: hidden;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.mobilebutton {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.mobilebutton:hover>.burgerbottom,
+.mobilebutton:hover>.burgermiddle,
+.mobilebutton:hover>.burgertop {
+    background-color: #BB0502;
+}
+
+@media screen and (max-width:10px) {
+    .mobilebutton {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-80px);
+        transition: all 0.5s;
+    }
+}
+
+
+ul>li>ul {
+    visibility: hidden;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 1s;
+}
+
+ul>li:hover>ul {
+    visibility: visible;
+    transform: translateY(0px);
+    opacity: 1;
+    z-index: 5;
+    transition: all 0.5s;
+}
+
+ul>li>ul.activesubmenu {
+    visibility: visible;
+    transform: translateY(0px);
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.mobilenavbar {
+    visibility: visible;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    z-index: 2;
+    transition: all 0.5s;
+}
+
+.cornerlogo {
+    text-decoration: none;
+    position: fixed;
+    font-size: 15px;
+    color: white;
+    top: 0px;
+    left: 18px;
+    z-index: 100;
+}
+
+.cornerlogo>img {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 50px;
+    transition: all 0.5s;
+}
+
+.cornerlogo>img:hover {
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
