@@ -14,17 +14,22 @@ const AppPage = () => {
     const [MBTALine, setMBTALine] = useState(null);
     const [invalidLine, setInvalidLine] = useState(null);
     const [directions, setDirections] = useState(null);
+    const [authenticated, setAuthenticated] = useState(false)
 
     const checkAuth = () => {
         axios({
             method: "GET",
             url: "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + localStorage.getItem("accessToken")
         })
-            .catch(error => {
+        .then(() => {
+            setAuthenticated(true)
+            console.log('valid')
+        })
+        .catch((error) => {
                 window.alert("Please Sign into Google Below!")
-                return false
-            })
-        return true;
+                setAuthenticated(false)
+        })
+        return authenticated;
     }
 
     const getLocation = () => {

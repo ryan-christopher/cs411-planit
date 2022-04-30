@@ -2,7 +2,7 @@ import { GoogleLogout } from 'react-google-login'
 
 function Logout() {
     const logout = () => {
-        localStorage.removeItem("accessToken")
+        localStorage.setItem('accessToken', null)
         console.log("logged out!")
     }
     return (

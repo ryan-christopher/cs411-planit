@@ -4,8 +4,7 @@ import { GoogleLogin } from 'react-google-login'
 
 function Login() {
     const responseGoogle = (response) => {
-        console.log("done")
-        console.log(response);
+        console.log("logged into google")
         if ("accessToken" in response) {
             localStorage.setItem("accessToken", response['accessToken'])  // store in local storage, not ideal
         }
