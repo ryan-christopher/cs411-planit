@@ -13,6 +13,7 @@ const AppPage = () => {
     const [setMBTAInput] = useState("");
     const [MBTALine, setMBTALine] = useState(null);
     const [invalidLine, setInvalidLine] = useState(null);
+    const [directions, setDirections] = useState(null);
 
     const checkAuth = () => {
         axios({
@@ -77,12 +78,12 @@ const AppPage = () => {
         }
     }
 
-    const testGH = () => {
+    const getDirections = () => {
         if (checkAuth()) {
             axios({
                 method: "post",
                 url: "http://127.0.0.1:5000/get_directions_between_coords",
-                data: {
+                data: { // CHANGE THESE LATER
                     "depart_lat": 42.35079819407158,
                     "depart_lon": -71.10901412751858,
                     "dest_lat": 42.36017428184034,
@@ -94,6 +95,7 @@ const AppPage = () => {
             })
                 .then(function (response) {
                     console.log(response.data)
+                    setDirections(response.data)
                 })
         }
     }
@@ -117,7 +119,16 @@ const AppPage = () => {
                         {MBTALine && !invalidLine && <p>{MBTALine['data']['attributes']['direction_destinations'][0]} - {MBTALine['data']['attributes']['direction_destinations'][1]}</p>}
                         {invalidLine && <p>Error 404: Line named "{MBTAInput}" not found</p>}
                         {/* Tests getting route from coordinates, delete later */}
-                        <button onClick={testGH}>Test GH</button>
+                        <button onClick={getDirections}>Get Directions</button>
+                        {/* {directions && <p>Directions to Your Destination:</p> && 
+                            <div>
+                                <ol>
+                                    {Object.keys(directions).map(({entry, idx}) => {
+                                        return (<li key={idx}>{idx}</li>)
+                                    })}
+                                </ol>
+                            </div>
+                        } */}
                     </div>
                 </div>
             </div>

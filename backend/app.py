@@ -6,7 +6,7 @@ import dotenv
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
-dotenv.load_dotenv()
+dotenv.load_dotenv("frontend/")
 
 @app.route("/")
 def landing():
@@ -51,8 +51,9 @@ def get_directions_between_coords():
         return {"response": "Invalid Coordinates"}, 400
     api_key = os.getenv("GRAPHHOPPERKEY")
     url = f"https://graphhopper.com/api/1/route?point={depart_lat}, {depart_lon}&point={dest_lat}, {dest_lon}&profile=car&locale=en&instructions=true&calc_points=true&key={api_key}"
-    res = requests.get(url)
-    return res.text, 200
+    graphhopper_path_data = requests.get(url).json()['paths'][0]["instructions"]
+    paths = {idx: step['text'] for idx, step in enumerate(graphhopper_path_data)}
+    return paths, 200
 
 if __name__ == "__main__":
     app.run(debug=True)
