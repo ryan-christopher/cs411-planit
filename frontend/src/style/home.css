@@ -127,16 +127,38 @@ div.spacer {
     font-size: 75px;
 }
 
+.icon {
+    font-size: 115px;
+}
+
+.flexparagraph {
+    padding: 25px;
+    margin-top: 8vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25vw;
+    min-width: 275px;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 5px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
 @media screen and (max-width:1000px) {
 
     .flexcol1,
     .flexcol2,
     .flexcol3 {
         width: 100vw;
-        height: 75vh;
+        height: 90vh;
     }
 
     .threecolflex {
         flex-direction: column;
+    }
+
+    .flexparagraph {
+        width: 70vw;
     }
 }

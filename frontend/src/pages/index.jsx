@@ -4,6 +4,9 @@ import Signup from '../components/Signup'
 import Footer from '../components/Footer'
 import "../style/pages.css"
 import "../style/home.css"
+import { CgSmileMouthOpen } from 'react-icons/cg'
+import { MdOutlineAddLocationAlt } from 'react-icons/md'
+import { IoListCircleOutline } from 'react-icons/io5'
 
 
 
@@ -53,18 +56,34 @@ function Home() {
                     <div className="flexcol1">
                         <div className="colmask">
                             <h3 className="colheader">NEW</h3>
+                            <MdOutlineAddLocationAlt className='icon' />
+                            <p className='flexparagraph'>
+                                <h3>keep things new</h3>
+                                <hr className="thinline2" />
+                                find new places for your day to day
+                            </p>
                         </div>
 
                     </div>
                     <div className="flexcol2">
                         <div className="colmask">
                             <h3 className="colheader">FUN</h3>
+                            <CgSmileMouthOpen className='icon' />
+                            <p className='flexparagraph'>
+                                <h3>good times ahead</h3>
+                                <hr className="thinline2" />
+                                always have something to look forward to</p>
                         </div>
 
                     </div>
                     <div className="flexcol3">
                         <div className="colmask">
                             <h3 className="colheader">EASY</h3>
+                            <IoListCircleOutline className='icon' />
+                            <p className='flexparagraph'>
+                                <h3>all in one</h3>
+                                <hr className="thinline2" />
+                                all your favorite places stored in one place</p>
                         </div>
 
                     </div>
