@@ -1,9 +1,5 @@
 .vscode
-<<<<<<< HEAD
-.env
-frontend/demo/node_modules
-=======
 backend/.env
 frontend/.env
 frontend/node_modules
->>>>>>> master
+frontend/demo/node_modules
