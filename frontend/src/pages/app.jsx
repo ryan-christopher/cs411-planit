@@ -22,19 +22,24 @@ const AppPage = () => {
             method: "GET",
             url: "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + localStorage.getItem("accessToken")
         })
-            .then(() => {
-                setAuthenticated(true)
-                console.log('valid')
-            })
-            .catch((error) => {
-                window.alert("Please Sign into Google Below!")
-                setAuthenticated(false)
-            })
-        return authenticated;
+        .then(() => {
+            setAuthenticated(true)
+        })
+        .catch((error) => {
+            window.alert("Please Sign into Google!")
+            setAuthenticated(false)
+        })
+        console.log(`authenticated: ${authenticated}`)
     }
 
+    // check authentication on page access
+    useEffect(() => {
+        checkAuth();
+    }, [])
+
     const getLocation = () => {
-        if (checkAuth()) {
+        checkAuth();
+        if (authenticated) {
             if (!navigator.geolocation) {
                 setStatus('Geolocation is not supported by your browser');
             } else {
@@ -48,13 +53,14 @@ const AppPage = () => {
                     pic.innerHTML = '<img class="sad-response" src="pictures/sad-face.png"/>'
                 });
             }
-        }
+        } else { console.log("did not pass") }
 
     }
 
     // Takes in MBTAInput from state and POSTs to flask backend
     const getLineData = () => {
-        if (checkAuth()) {
+        checkAuth();
+        if (authenticated) {
             var data = JSON.stringify({
                 "line": MBTAInput
             });
@@ -85,24 +91,30 @@ const AppPage = () => {
     }
 
     const getDirections = () => {
-        if (checkAuth()) {
-            axios({
-                method: "post",
-                url: "http://127.0.0.1:5000/get_directions_between_coords",
-                data: { // CHANGE THESE LATER
-                    "depart_lat": 42.35079819407158,
-                    "depart_lon": -71.10901412751858,
-                    "dest_lat": 42.36017428184034,
-                    "dest_lon": -71.05590316768416
-                },
-                headers: {
-                    'Content-Type': "application/json"
-                }
-            })
+        checkAuth()
+        if (authenticated) {
+            if (lat === null || lng === null) {
+                window.alert("Please Get Your Location First!")
+            }
+            else {
+                axios({
+                    method: "post",
+                    url: "http://127.0.0.1:5000/get_directions_between_coords",
+                    data: { // CHANGE THESE LATER
+                        "depart_lat": lat,
+                        "depart_lon": lng,
+                        "dest_lat": 42.36017428184034,
+                        "dest_lon": -71.05590316768416
+                    },
+                    headers: {
+                        'Content-Type': "application/json"
+                    }
+                })
                 .then(function (response) {
                     console.log(response.data)
                     setDirections(response.data)
                 })
+            }
         }
     }
 

@@ -36,14 +36,14 @@ class Users(db.Model):
     name = db.Column(db.String(200), nullable=False)#users name
     email = db.Column(db.String(120), nullable=False, unique=True)
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
-    likes = db.Column(db.Text())  # stores liked venues as json in string type
+    favorites = db.Column(db.Text())  # stores liked venues as json in string type
 
     #Create a String
     def __str__(self):
         return str({
             'id': self.id, 'name': self.name,
             'email': self.email, 'date_added': self.date_added.strftime("%b %d, %Y"), 
-            'likes': self.likes
+            'favorites': self.favorites
             })
 
 #Create a form clas for db
@@ -116,7 +116,7 @@ def register_google_data():
     return "", 200
 
 
-@app.route("/add_like_to_user", methods=['POST'])
+@app.route("/add_favorite_to_user", methods=['POST'])
 def add_like_to_user():
     req = request.get_json()
     if not req and not req['venue']:
@@ -128,15 +128,26 @@ def add_like_to_user():
         return "Error: User not found. You probably need to sign in", 400
     
     # add the new venue to the user's likes
-    curr_likes = dict(json.loads(user.likes.replace('\'', "\"")))
-    curr_likes[req['venue']] = req
-    setattr(user, "likes", str(curr_likes))
+    curr_favorites = dict(json.loads(user.favorites.replace('\'', "\"")))
+    curr_favorites[req['venue']] = req
+    setattr(user, "favorites", str(curr_likes))
 
     # update database
     db.session.delete(user)
     db.session.add(user)
     db.session.commit()
     return "", 200
+
+
+@app.route("/get_user_favorites", methods=['GET'])
+def get_user_favorites():
+    if 'USERID' not in os.environ:
+        return "Error: Please Sign in", 400
+    user = Users.query.filter_by(id=os.environ['USERID']).first()
+    if not user:
+        return "Error: User not found. You probably need to sign in", 400
+    return json.loads(user.favorites), 200
+
 
 if __name__ == "__main__":
     db.create_all()

@@ -4,3 +4,4 @@ frontend/.env
 frontend/node_modules
 frontend/demo/node_modules
 .env
+frontend/src/components/YelpCard.js
