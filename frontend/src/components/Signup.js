@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import GoogleLogin from 'react-google-login';
 import $ from "jquery";
-import TweenMax from "gsap";
-import { Link } from 'react-router-dom';
-import { Power2, Power3, Elastic } from 'gsap';
+import TweenMax, { Power2, Power3, Elastic } from 'gsap';
+import Preloader from './Preloader';
 import "../style/signup.css";
+import { Link } from 'react-router-dom';
 
 
 
+
+var axios = require("axios");
 
 var viewportOffset = {
     x: 0,
@@ -122,18 +125,67 @@ $(document).on("mouseenter mouseleave", '.magnet-btn', function (e) {
     }
 });
 
-
-
 function Signup() {
+
+    const [authenticated, setAuthenticated] = useState(false)
+
+    const responseGoogle = (response) => {
+        console.log("logged into google")
+        if ("accessToken" in response) {
+            localStorage.setItem("accessToken", response['accessToken'])  // store in local storage, not ideal
+            window.location.reload();
+        }
+    }
+
+    const checkAuth = () => {
+        axios({
+            method: "GET",
+            url: "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + localStorage.getItem("accessToken")
+        })
+            .then(() => {
+                setAuthenticated(true)
+                console.log('valid')
+            })
+            .catch((error) => {
+                setAuthenticated(false)
+            })
+        return authenticated;
+    }
+
+
+    if (!checkAuth()) {
+        var sticker = <div>
+            <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLECLIENTID}
+                buttonText="Login"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+                className="googlebutton"
+            />
+            <span>sign in!</span>
+            <div className="magnet-btn__bg">
+                (or sign up!)
+            </div>
+        </div>
+    }
+    else {
+        sticker = <div>
+            <span><Link to="/app" className="planlink" onClick={Preloader}>hey!</Link></span>
+            <div className="magnet-btn__bg">
+                let's plan
+            </div>
+        </div>
+    }
+
     return (
         <div>
             <div className="bg bg--white"></div>
             <div className="bg bg--black"></div>
             <div className="wrapper">
-                <Link to="/" className="magnet-btn" offset-hover-max="0.5" offset-hover-min="0.5">
-                    <span>sign in!</span>
-                    <div className="magnet-btn__bg">(or sign up!)</div>
-                </Link>
+                <div className="magnet-btn" offset-hover-max="0.5" offset-hover-min="0.5">
+                    {sticker}
+                </div>
             </div>
         </div>
     )

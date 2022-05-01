@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 var axios = require("axios");
 
+
 const AppPage = () => {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
@@ -21,14 +22,14 @@ const AppPage = () => {
             method: "GET",
             url: "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + localStorage.getItem("accessToken")
         })
-        .then(() => {
-            setAuthenticated(true)
-            console.log('valid')
-        })
-        .catch((error) => {
+            .then(() => {
+                setAuthenticated(true)
+                console.log('valid')
+            })
+            .catch((error) => {
                 window.alert("Please Sign into Google Below!")
                 setAuthenticated(false)
-        })
+            })
         return authenticated;
     }
 

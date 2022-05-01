@@ -8,13 +8,11 @@ import React from "react";
 import Login from "./components/Login"
 import Logout from "./components/Logout"
 
-
-
 const App = () => {
   return (
     <div className="App">
       <Routes>
-        {/*All our Routes goes here!*/}
+        {/*All our routes go here!*/}
         <Route path="/" element={<Home />} />
         <Route path="app" element={<AppPage />} />
         <Route path="about" element={<About />} />

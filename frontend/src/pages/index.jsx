@@ -6,6 +6,7 @@ import "../style/pages.css"
 import "../style/home.css"
 
 
+
 function Home() {
     return (
         <div>
