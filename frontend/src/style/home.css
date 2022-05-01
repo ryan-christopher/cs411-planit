@@ -3,6 +3,9 @@
     src: url("./takota-font/Takota-BRa8.ttf") format("truetype");
 }
 
+html {
+    background-color: black;
+}
 
 div#landing {
     background-image: url("../../public/pictures/timelapse-pic.jpg");

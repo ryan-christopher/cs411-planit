@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import GoogleLogin from 'react-google-login';
 import $ from "jquery";
 import TweenMax, { Power2, Power3, Elastic } from 'gsap';
 import Preloader from './Preloader';
 import "../style/signup.css";
 import { Link } from 'react-router-dom';
-
+import Signedin from './Signedin';
 
 
 
@@ -127,8 +127,6 @@ $(document).on("mouseenter mouseleave", '.magnet-btn', function (e) {
 
 function Signup() {
 
-    const [authenticated, setAuthenticated] = useState(false)
-
     // gets user's info from google for db
     const sendUserInfo = () => {
         axios({
@@ -153,23 +151,7 @@ function Signup() {
         }
     }
 
-    const checkAuth = () => {
-        axios({
-            method: "GET",
-            url: "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + localStorage.getItem("accessToken")
-        })
-            .then(() => {
-                setAuthenticated(true)
-                console.log('valid')
-            })
-            .catch((error) => {
-                setAuthenticated(false)
-            })
-        return authenticated;
-    }
-
-
-    if (!checkAuth()) {
+    if (!Signedin()) {
         var sticker = <div>
             <GoogleLogin
                 clientId={process.env.REACT_APP_GOOGLECLIENTID}

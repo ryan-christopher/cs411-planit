@@ -3,6 +3,10 @@
     src: url("./takota-font/Takota-BRa8.ttf") format("truetype");
 }
 
+html {
+    background-color: black;
+}
+
 .mask {
     height: 100%;
     width: 100%;
@@ -277,4 +281,17 @@ ul>li>ul.activesubmenu {
 .cornerlogo>img:hover {
     transform: scale(1.2);
     transition: all 0.5s;
+}
+
+.googlemenubutton {
+    opacity: 1;
+    background: transparent;
+    width: 175px;
+    height: 80px;
+    transition: all 0.25s;
+}
+
+.googlemenubutton:hover {
+    transform: scale(1.05);
+    transition: all 0.25s;
 }

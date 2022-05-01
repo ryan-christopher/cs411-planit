@@ -4,10 +4,80 @@ import { Link } from 'react-router-dom';
 import $ from 'jquery'
 import Preloader from '../components/Preloader';
 import { useLocation } from 'react-router-dom';
+import Signedin from './Signedin';
+import GoogleLogin from 'react-google-login';
+import Logout from './Logout';
 
 function Navbar() {
     let location = useLocation();
+    let links;
     console.log(location.pathname);
+
+    if (Signedin()) {
+        if (location.pathname === "/") {
+            links =
+                <div>
+                    <Link className="mobilemenu-link" to="/" onClick={menutoggle}>Home</Link>
+                    <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
+                    <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
+                    <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
+                    <Logout className="mobilemenu-link" />
+                </div>
+        }
+        if (location.pathname === "/app") {
+            links =
+                <div>
+                    <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                    <Link className="mobilemenu-link" to="/app" onClick={menutoggle}>Planit</Link>
+                    <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
+                    <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
+                    <Logout className="mobilemenu-link" />
+                </div>
+        }
+        if (location.pathname === "/team") {
+            links =
+                <div>
+                    <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                    <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
+                    <Link className="mobilemenu-link" to="/team" onClick={menutoggle}>The Team</Link>
+                    <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
+                    <Logout className="mobilemenu-link" />
+                </div>
+        }
+        if (location.pathname === "/about") {
+            links =
+                <div>
+                    <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                    <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
+                    <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
+                    <Link className="mobilemenu-link" to="/about" onClick={menutoggle}>About</Link>
+                    <Logout className="mobilemenu-link" />
+                </div>
+        }
+    }
+    else {
+        const responseGoogle = (response) => {
+            console.log("logged into google")
+            if ("accessToken" in response) {
+                localStorage.setItem("accessToken", response['accessToken'])  // store in local storage, not ideal
+                window.location.reload();
+            }
+        }
+        links =
+            <div>
+                <Link className="mobilemenu-link" to="/" onClick={menutoggle}>Home</Link>
+                <div className="mobilemenu-link">
+                    <GoogleLogin
+                        clientId={process.env.REACT_APP_GOOGLECLIENTID}
+                        buttonText="Login"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                        className="googlemenubutton"
+                    />
+                </div>
+            </div>
+    }
 
     return (
         <div>
@@ -27,40 +97,7 @@ function Navbar() {
                 <div className="mobilemenu-body">
                     <div className="mobilemenu-overlay"></div>
                     <div className="mobilemenu-container">
-                        {location.pathname === "/" && <div>
-                            <Link className="mobilemenu-link" to="/" onClick={menutoggle}>Home</Link>
-                            <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
-                            <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
-                            <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
-                        </div>
-                        }
-                        {location.pathname === "/app" && <div>
-                            <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
-                            <Link className="mobilemenu-link" to="/app" onClick={menutoggle}>Planit</Link>
-                            <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
-                            <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
-                        </div>
-                        }
-                        {location.pathname === "/team" && <div>
-                            <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
-                            <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
-                            <Link className="mobilemenu-link" to="/team" onClick={menutoggle}>The Team</Link>
-                            <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
-                        </div>
-                        }
-                        {location.pathname === "/about" && <div>
-                            <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
-                            <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
-                            <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
-                            <Link className="mobilemenu-link" to="/about" onClick={menutoggle}>About</Link>
-                        </div>
-                        }
-                        {/** 
-                        <Link className="mobilemenu-link" to="/" onClick={Preloader} >Home</Link>
-                        <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
-                        <Link className="mobilemenu-link" to="/team">The Team</Link>
-                        <Link className="mobilemenu-link" to="/about">About</Link>
-                        */}
+                        {links}
                     </div>
                 </div>
             </div>

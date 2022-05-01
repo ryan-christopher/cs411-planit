@@ -3,6 +3,10 @@
     src: url("./takota-font/Takota-BRa8.ttf") format("truetype");
 }
 
+html {
+    background-color: black;
+}
+
 body {
     background-color: #1b1b1b;
     color: white;
