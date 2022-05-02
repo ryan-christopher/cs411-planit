@@ -13,7 +13,6 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: 25px;
   color: white;
 }
@@ -34,19 +33,60 @@ html {
 
 button {
   font-family: 'Josefin Sans', sans-serif;
+  cursor: pointer;
   font-size: 20px;
   width: 150px;
-  height: 50px;
-  background-color: rgb(210, 210, 210);
+  min-height: 50px;
+  margin: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
   border-radius: 5px;
-  border: 3px solid rgb(255, 255, 255);
-  transition: all 0.5s;
-
+  color: black;
+  transition: all 0.4s;
 }
 
 button:hover {
   transform: scale(1.2);
-  background-color: rgb(255, 255, 255);
+  transition: all 0.4s;
+}
+
+button.choicebutton {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  width: 150px;
+  min-height: 70px;
+  margin: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  color: white;
+  transition: all 0.5s;
+
+}
+
+button.choicebutton:hover {
+  transform: scale(1.2);
+  background-color: rgba(0, 0, 0, 0.25);
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.buttonicon {
+  font-size: 40px;
+  border: 3px solid black;
+  padding: 8px;
+  border-radius: 50%;
+  margin-top: 10px;
+  transition: all 0.5s;
+}
+
+button.choicebutton:hover>.buttonicon {
+  transform: scale(1.2);
+  background-color: black;
   transition: all 0.5s;
 }
 
@@ -55,6 +95,44 @@ button:hover {
   animation: bounce 3s infinite;
 }
 
+.choiceline {
+  height: 2px;
+  border-radius: 0px;
+  border: none;
+  background-color: white;
+}
+
+#food {
+  border-color: rgb(219, 46, 46);
+}
+
+button.choicebutton:hover>#food {
+  color: rgb(219, 46, 46);
+}
+
+#drink {
+  border-color: rgb(248, 230, 34);
+}
+
+button.choicebutton:hover>#drink {
+  color: rgb(248, 230, 34);
+}
+
+#tree {
+  border-color: rgb(46, 202, 116);
+}
+
+button.choicebutton:hover>#tree {
+  color: rgb(46, 202, 116);
+}
+
+#gym {
+  border-color: rgb(21, 147, 232);
+}
+
+button.choicebutton:hover>#gym {
+  color: rgb(21, 147, 232);
+}
 
 @keyframes bounce {
 

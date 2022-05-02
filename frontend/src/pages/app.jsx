@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { CgArrowLongDownR } from 'react-icons/cg';
+import { IoBeerOutline, IoFastFoodOutline } from 'react-icons/io5'
+import { TiTree } from 'react-icons/ti'
+import { GiWeightLiftingUp } from 'react-icons/gi'
 import '../style/App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Preloader from '../components/Preloader';
+
 var axios = require("axios");
 
 
@@ -219,10 +223,26 @@ const AppPage = () => {
                                 </ol>
                             </div>
                         } */}
-                        <button onClick={() => getYelp("restaurants")}>find some food</button>
-                        <button onClick={() => getYelp("bars")}>get a drink </button>
-                        <button onClick={() => getYelp("parks")}>get outside</button>
-                        <button onClick={() => getYelp("gyms")}>work out</button>
+                        <button className="choicebutton" onClick={() => getYelp("restaurants")}>
+                            find some food
+                            <hr className="choiceline" />
+                            <IoFastFoodOutline className="buttonicon" id="food" />
+                        </button>
+                        <button className="choicebutton" onClick={() => getYelp("bars")}>
+                            get a drink
+                            <hr className="choiceline" />
+                            <IoBeerOutline className="buttonicon" id="drink" />
+                        </button>
+                        <button className="choicebutton" onClick={() => getYelp("parks")}>
+                            get outside
+                            <hr className="choiceline" />
+                            <TiTree className="buttonicon" id="tree" />
+                        </button>
+                        <button className="choicebutton" onClick={() => getYelp("gyms")}>
+                            work out
+                            <hr className="choiceline" />
+                            <GiWeightLiftingUp className="buttonicon" id="gym" />
+                        </button>
                         {places && <div className="results">{
                             Object.keys(places).map((key, index) => (
                                 <div key={index} className="resultcard">
