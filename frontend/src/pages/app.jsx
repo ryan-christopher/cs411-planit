@@ -192,22 +192,22 @@ const AppPage = () => {
                         <button className="choicebutton" onClick={() => getYelp("restaurants")}>
                             find some food
                             <hr className="choiceline" />
-                            <IoFastFoodOutline className="buttonicon" />
+                            <IoFastFoodOutline className="buttonicon" id="food" />
                         </button>
                         <button className="choicebutton" onClick={() => getYelp("bars")}>
                             get a drink
                             <hr className="choiceline" />
-                            <IoBeerOutline className="buttonicon" />
+                            <IoBeerOutline className="buttonicon" id="drink" />
                         </button>
                         <button className="choicebutton" onClick={() => getYelp("parks")}>
                             get outside
                             <hr className="choiceline" />
-                            <TiTree className="buttonicon" />
+                            <TiTree className="buttonicon" id="tree" />
                         </button>
                         <button className="choicebutton" onClick={() => getYelp("gyms")}>
                             work out
                             <hr className="choiceline" />
-                            <GiWeightLiftingUp className="buttonicon" />
+                            <GiWeightLiftingUp className="buttonicon" id="gym" />
                         </button>
                         {places && <div className="results">{
                             Object.keys(places).map((key, index) => (
