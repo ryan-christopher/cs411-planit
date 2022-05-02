@@ -11,6 +11,7 @@ from flask_sqlalchemy import SQLAlchemy #libary to create database
 from datetime import datetime #keep track when things are added to db
 from flask_login import LoginManager #Used Flask-Login to make a LoginManager class
 from flask_migrate import Migrate
+import ast
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -48,6 +49,13 @@ class Users(db.Model):
             'email': self.email, 'date_added': self.date_added.strftime("%b %d, %Y"), 
             'favorites': self.favorites
             })
+
+    def to_json(self):
+        return {
+            'id': self.id, 'name': self.name,
+            'email': self.email, 'date_added': self.date_added.strftime("%b %d, %Y"), 
+            'favorites': self.favorites
+            }
 
 #Create a form class for db
 class UserForm(FlaskForm):
@@ -107,49 +115,81 @@ def get_directions_between_coords():
 @app.route("/register_google_data", methods=['POST'])
 def register_google_data():
     """Registers user in DB from Google OAuth and saves their id for this session"""
+    print("1")
     req = request.get_json()
     query = Users.query.filter_by(email=req["email"]).first()
     if not query:
-        query = Users(name=req['name'], email=req['email'], likes=str({}))
-        db.session.add(entry)
+        query = Users(name=req['name'], email=req['email'], favorites=str({}))
+        db.session.add(query)
         db.session.commit()
-    os.environ['USERID'] = str(query.id)
-    print(os.environ['USERID'])
+    else:
+        print("already registered")
+    print("signed in")
     return "", 200
 
 
 @app.route("/add_favorite_to_user", methods=['POST'])
 def add_like_to_user():
     req = request.get_json()
-    if not req and not req['venue']:
+    if not req and not req['place']['name']:
         return "Error: Venue not provided", 400
-    if 'USERID' not in os.environ:
-        return "Error: Please Sign in", 400
-    user = Users.query.filter_by(id=os.environ['USERID']).first()
+    
+    email = requests.get("https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + req['accessToken']).json()['email']
+    user = Users.query.filter_by(email=email).first()
     if not user:
-        return "Error: User not found. You probably need to sign in", 400
+        return "Error: User not found", 400
     
     # add the new venue to the user's likes
-    curr_favorites = dict(json.loads(user.favorites.replace('\'', "\"")))
-    curr_favorites[req['venue']] = req
-    setattr(user, "favorites", str(curr_likes))
+    curr_favorites = ast.literal_eval(user.favorites)
+    curr_favorites[req['place']['name']] = req['place']
+    setattr(user, "favorites", str(curr_favorites))
 
     # update database
     db.session.delete(user)
     db.session.add(user)
     db.session.commit()
+    print('added favorite')
     return "", 200
 
 
-@app.route("/get_user_favorites", methods=['GET'])
-def get_user_favorites():
-    if 'USERID' not in os.environ:
-        return "Error: Please Sign in", 400
-    user = Users.query.filter_by(id=os.environ['USERID']).first()
+@app.route('/remove_favorite_from_user', methods=['POST'])
+def remove_favorite_from_user():
+    """Removes a location from the current user's favorites list"""
+    req = request.get_json()
+    if not req and not req['name']:
+        return "Error: Venue not provided", 400
+    
+    # check auth
+    email = requests.get("https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + req['accessToken']).json()['email']
+    user = Users.query.filter_by(email=email).first()
     if not user:
-        return "Error: User not found. You probably need to sign in", 400
-    return json.loads(user.favorites), 200
+        return "Error: User not found", 400
+    
+    # add the new venue to the user's likes
+    curr_favorites = ast.literal_eval(user.favorites)
+    del curr_favorites[req['name']]
+    setattr(user, "favorites", str(curr_favorites))
 
+    # update database
+    db.session.delete(user)
+    db.session.add(user)
+    db.session.commit()
+    print('removed favorite')
+    return "", 200
+
+
+@app.route("/get_user", methods=['POST'])
+def get_user():
+    """Returns a users profile info and favorites list"""
+    req = request.get_json()
+    email = requests.get("https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + req['accessToken']).json()['email']
+    user = Users.query.filter_by(email=email).first()
+    if not user:
+        return "Error: User not found", 400
+    data = user.to_json()
+    data['favorites'] = ast.literal_eval(data['favorites'])
+    print(data)
+    return data, 200 
 
 @app.route("/yelp_call", methods=['POST'])
 def yelp_call_food():

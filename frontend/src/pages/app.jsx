@@ -39,6 +39,27 @@ const AppPage = () => {
         checkAuth();
     }, [])
 
+    // gets user's info from google for db
+    const sendUserInfo = () => {
+        if (authenticated) {
+            axios({
+                method: "GET",
+                url: "https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + localStorage.getItem("accessToken")
+            })
+            .then((response) => {
+                axios({
+                    method: "POST",
+                    url: "http://127.0.0.1:5000/register_google_data",
+                    data: response['data']
+                })
+            })
+        }
+    }
+
+    useEffect(() => {
+        sendUserInfo();
+    }, [authenticated])
+
     const getLocation = () => {
         checkAuth();
         if (authenticated) {
@@ -144,7 +165,7 @@ const AppPage = () => {
                     }
                 })
                     .then(function (response) {
-                        //console.log(response.data)
+                        console.log(response.data)
                         setPlaces(response.data)
                         //console.log("object.keys:")
                         //console.log(Object.keys(places))
@@ -154,6 +175,19 @@ const AppPage = () => {
                     })
             }
         }
+    }
+
+    const addToFavorites = (place) => {
+        console.log(place)
+        axios({
+            method: "POST",
+            url: "http://127.0.0.1:5000/add_favorite_to_user",
+            data: {"place": place, "accessToken": localStorage.getItem("accessToken")}
+        })
+        .then(console.log(`added ${place['name']} to favorites!`))
+        .catch((error) => {
+            console.log(error)
+        })
     }
 
     return (
@@ -196,6 +230,9 @@ const AppPage = () => {
                                     <img className="resultpic" src={places[key]["image"]} alt={places[key]["name"]} />
                                     <p>{places[key]["address"]}</p>
                                     <button onClick={() => getDirections(places[key]["coords"]["latitude"], places[key]["coords"]["longitude"])}>Get Directions</button>
+                                    <br></br>
+                                    <br></br>
+                                    <button onClick={() => addToFavorites(places[key])}>Add to Favorites</button>
                                 </div>
                             ))
                         }

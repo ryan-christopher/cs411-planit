@@ -17,6 +17,7 @@ function Navbar() {
             links =
                 <div>
                     <Link className="mobilemenu-link" to="/" onClick={menutoggle}>Home</Link>
+                    <Link className="mobilemenu-link" to="/profile" onClick={menutoggle}>Profile</Link>
                     <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
                     <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
                     <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
@@ -27,6 +28,7 @@ function Navbar() {
             links =
                 <div>
                     <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                    <Link className="mobilemenu-link" to="/profile" onClick={menutoggle}>Profile</Link>
                     <Link className="mobilemenu-link" to="/app" onClick={menutoggle}>Planit</Link>
                     <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
                     <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
@@ -37,6 +39,7 @@ function Navbar() {
             links =
                 <div>
                     <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                    <Link className="mobilemenu-link" to="/profile" onClick={menutoggle}>Profile</Link>
                     <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
                     <Link className="mobilemenu-link" to="/team" onClick={menutoggle}>The Team</Link>
                     <Link className="mobilemenu-link" to="/about" onClick={Preloader}>About</Link>
@@ -47,6 +50,18 @@ function Navbar() {
             links =
                 <div>
                     <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                    <Link className="mobilemenu-link" to="/profile" onClick={menutoggle}>Profile</Link>
+                    <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
+                    <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
+                    <Link className="mobilemenu-link" to="/about" onClick={menutoggle}>About</Link>
+                    <Logout className="mobilemenu-link" />
+                </div>
+        }
+        if (location.pathname === "/profile") {
+            links =
+                <div>
+                    <Link className="mobilemenu-link" to="/" onClick={Preloader}>Home</Link>
+                    <Link className="mobilemenu-link" to="/profile" onClick={menutoggle}>Profile</Link>
                     <Link className="mobilemenu-link" to="/app" onClick={Preloader}>Planit</Link>
                     <Link className="mobilemenu-link" to="/team" onClick={Preloader}>The Team</Link>
                     <Link className="mobilemenu-link" to="/about" onClick={menutoggle}>About</Link>
