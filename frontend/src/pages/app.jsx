@@ -92,22 +92,24 @@ const AppPage = () => {
         }
     }
 
-    const getDirections = () => {
-        checkAuth()
+
+
+    const getDirections = (dest_lat, dest_lon) => {
         if (authenticated) {
             if (lat === null || lng === null) {
                 window.alert("Please Get Your Location First!")
             }
             else {
+                var data = JSON.stringify({
+                    "depart_lat": lat,
+                    "depart_lon": lng,
+                    "dest_lat": dest_lat,
+                    "dest_lon": dest_lon
+                });
                 axios({
-                    method: "get",
+                    method: "post",
                     url: "http://127.0.0.1:5000/get_directions_between_coords",
-                    data: { // CHANGE THESE LATER
-                        "depart_lat": lat,
-                        "depart_lon": lng,
-                        "dest_lat": 42.36017428184034,
-                        "dest_lon": -71.05590316768416
-                    },
+                    data: data,
                     headers: {
                         'Content-Type': "application/json"
                     }
@@ -115,6 +117,7 @@ const AppPage = () => {
                     .then(function (response) {
                         console.log(response.data)
                         setDirections(response.data)
+                        console.log(directions)
                     })
             }
         }
@@ -188,6 +191,7 @@ const AppPage = () => {
                                     <h3>{places[key]["name"]}</h3>
                                     <img className="resultpic" src={places[key]["image"]} alt={places[key]["name"]} />
                                     <p>{places[key]["address"]}</p>
+                                    <button onClick={() => getDirections(places[key]["coords"]["latitude"], places[key]["coords"]["longitude"])}>Get Directions</button>
                                 </div>
                             ))
                         }

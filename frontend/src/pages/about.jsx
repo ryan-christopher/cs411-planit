@@ -14,9 +14,9 @@ function About() {
                     <h1 className="abouth1">About Us</h1>
                     <h3 className='abouth3'>(hint: hover)</h3>
                     <br /><br /><br />
-                    <div class='flipwrapper'>
-                        <div class='container'>
-                            <div class='box_front'>
+                    <div className='flipwrapper'>
+                        <div className='container'>
+                            <div className='box_front'>
                                 <div className="flipmask">
                                     <h3 className="fliph3">Planit</h3>
                                     <img src="pictures/planit-logo.png" alt="" className="flippic" />
@@ -27,10 +27,10 @@ function About() {
                                     </p>
                                 </div>
                             </div>
-                            <div class='box_bottom'>
+                            <div className='box_bottom'>
                                 <div className="flipmask">
                                     <h3 className="fliph3">CS411 Project</h3>
-                                    <img src="pictures/rhett.jpg" alt="" className="flippic" style={{ "border-radius": "50%" }} />
+                                    <img src="pictures/rhett.jpg" alt="" className="flippic" style={{ "borderRadius": "50%" }} />
                                     <p>We're actually Section A5 Group #2. This is our semester project for CS411. Our tech stack
                                         includes React for frontend, Flask for backend, and SQLite for the database.
                                     </p>

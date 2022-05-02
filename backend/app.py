@@ -84,7 +84,6 @@ def get_line():
     # returns valid input
     return {"response": res}, 200
 
-
 @app.route('/get_directions_between_coords', methods=['POST'])
 def get_directions_between_coords():
     """Given start and end coordinates, return the set of directions along with other route details"""
