@@ -18,7 +18,6 @@ const AppPage = () => {
     const [directions, setDirections] = useState(null);
     const [authenticated, setAuthenticated] = useState(false)
     const [places, setPlaces] = useState(false)
-    var cat;
 
     const checkAuth = () => {
         axios({

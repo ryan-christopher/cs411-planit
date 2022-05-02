@@ -44,11 +44,24 @@ code {
   transition: all 0.75s ease 1s;
 }
 
+.resultsload-finish {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.75s ease 1s;
+}
+
 #loading-pic {
   height: 15em;
   color: #ffffff;
   white-space: nowrap;
 }
+
+#loading-results-pic {
+  height: 15em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
 
 .load-anim {
   -webkit-animation: preload-label 2s 10 cubic-bezier(0.2, 0.6, 0.3, 1);
