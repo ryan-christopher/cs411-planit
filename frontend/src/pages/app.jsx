@@ -18,6 +18,7 @@ const AppPage = () => {
     const [directions, setDirections] = useState(null);
     const [authenticated, setAuthenticated] = useState(false)
     const [places, setPlaces] = useState(false)
+    var cat;
 
     const checkAuth = () => {
         axios({
@@ -123,7 +124,7 @@ const AppPage = () => {
         }
     }
 
-    const getYelp = () => {
+    const getYelp = (category) => {
         if (authenticated) {
             if (lat === null || lng === null) {
                 window.alert("Please Get Your Location First!")
@@ -133,6 +134,7 @@ const AppPage = () => {
                 var data = JSON.stringify({
                     "lat": lat,
                     "lon": lng,
+                    "category": category
                 });
                 axios({
                     method: "post",
@@ -174,8 +176,8 @@ const AppPage = () => {
                         {MBTALine && !invalidLine && <p>{MBTALine['data']['attributes']['direction_destinations'][0]} - {MBTALine['data']['attributes']['direction_destinations'][1]}</p>}
                         {invalidLine && <p>Error 404: Line named "{MBTAInput}" not found</p>}
                         {/* Tests getting route from coordinates, delete later */}
-                        <button onClick={getDirections}>Get Directions</button>
-                        {/* {directions && <p>Directions to Your Destination:</p> && 
+                        {/* <button onClick={getDirections}>Get Directions</button>
+                        {directions && <p>Directions to Your Destination:</p> && 
                             <div>
                                 <ol>
                                     {Object.keys(directions).map(({entry, idx}) => {
@@ -184,7 +186,7 @@ const AppPage = () => {
                                 </ol>
                             </div>
                         } */}
-                        <button onClick={getYelp}>yelp</button>
+                        <button onClick={() => getYelp("restaurants")}>find some food</button>
                         {places && <div className="results">{
                             Object.keys(places).map((key, index) => (
                                 <div key={index} className="resultcard">

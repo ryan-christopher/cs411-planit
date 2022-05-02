@@ -152,14 +152,15 @@ def get_user_favorites():
 
 
 @app.route("/yelp_call", methods=['POST'])
-def yelp_call():
+def yelp_call_food():
     req = request.get_json()
     if 'lat' not in req or 'lon' not in req:
         return "Error: need lat and lon"
     else:
         lat = req['lat']
         lon = req['lon']
-    url = "https://api.yelp.com/v3/businesses/search?latitude="+str(lat)+"&longitude="+str(lon)
+        cat = req['category']
+    url = "https://api.yelp.com/v3/businesses/search?latitude="+str(lat)+"&longitude="+str(lon)+"&term="+str(cat)
     payload={}
     bearer = os.getenv("YELP_API_KEY")
     headers = {

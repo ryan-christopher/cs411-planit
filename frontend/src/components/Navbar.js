@@ -11,7 +11,6 @@ import Logout from './Logout';
 function Navbar() {
     let location = useLocation();
     let links;
-    console.log(location.pathname);
 
     if (Signedin()) {
         if (location.pathname === "/") {

@@ -17,7 +17,6 @@ function Home() {
             <div className="header-section" id="landing">
                 <div id="landingmask">
                     <h1>PLANIT</h1>
-
                     <img src="pictures/planit-logo.png" alt="The planit logo." id="landingpic" />
 
                     <br />

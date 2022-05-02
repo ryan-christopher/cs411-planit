@@ -4,6 +4,7 @@ import AppPage from './pages/app';
 import About from './pages/about';
 import Team from './pages/team';
 import Home from './pages/index';
+import Navbar from './components/Navbar';
 import React from "react";
 
 const App = () => {

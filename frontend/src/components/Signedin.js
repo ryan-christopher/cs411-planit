@@ -13,7 +13,6 @@ function Signedin() {
         })
             .then(() => {
                 setAuthenticated(true)
-                console.log('valid')
             })
             .catch((error) => {
                 setAuthenticated(false)
