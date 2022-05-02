@@ -186,7 +186,6 @@ def yelp_call():
 
 if __name__ == "__main__":
     #COMMENT OUT FOR TESTING ONLY
-    #db.create_all()
-    #yelp_call()
+    db.create_all()
     app.run(debug=True)
     
