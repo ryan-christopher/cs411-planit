@@ -187,6 +187,9 @@ const AppPage = () => {
                             </div>
                         } */}
                         <button onClick={() => getYelp("restaurants")}>find some food</button>
+                        <button onClick={() => getYelp("bars")}>get a drink </button>
+                        <button onClick={() => getYelp("parks")}>get outside</button>
+                        <button onClick={() => getYelp("gyms")}>work out</button>
                         {places && <div className="results">{
                             Object.keys(places).map((key, index) => (
                                 <div key={index} className="resultcard">
