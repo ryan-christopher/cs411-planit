@@ -3,6 +3,7 @@ import { CgArrowLongDownR } from 'react-icons/cg';
 import '../style/App.css';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Preloader from '../components/Preloader';
 var axios = require("axios");
 
 
@@ -16,19 +17,20 @@ const AppPage = () => {
     const [invalidLine, setInvalidLine] = useState(null);
     const [directions, setDirections] = useState(null);
     const [authenticated, setAuthenticated] = useState(false)
+    const [places, setPlaces] = useState(false)
 
     const checkAuth = () => {
         axios({
             method: "GET",
             url: "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + localStorage.getItem("accessToken")
         })
-        .then(() => {
-            setAuthenticated(true)
-        })
-        .catch((error) => {
-            window.alert("Please Sign into Google!")
-            setAuthenticated(false)
-        })
+            .then(() => {
+                setAuthenticated(true)
+            })
+            .catch((error) => {
+                window.alert("Please Sign into Google!")
+                setAuthenticated(false)
+            })
         console.log(`authenticated: ${authenticated}`)
     }
 
@@ -98,7 +100,7 @@ const AppPage = () => {
             }
             else {
                 axios({
-                    method: "post",
+                    method: "get",
                     url: "http://127.0.0.1:5000/get_directions_between_coords",
                     data: { // CHANGE THESE LATER
                         "depart_lat": lat,
@@ -110,10 +112,42 @@ const AppPage = () => {
                         'Content-Type': "application/json"
                     }
                 })
-                .then(function (response) {
-                    console.log(response.data)
-                    setDirections(response.data)
+                    .then(function (response) {
+                        console.log(response.data)
+                        setDirections(response.data)
+                    })
+            }
+        }
+    }
+
+    const getYelp = () => {
+        if (authenticated) {
+            if (lat === null || lng === null) {
+                window.alert("Please Get Your Location First!")
+            }
+            else {
+                Preloader()
+                var data = JSON.stringify({
+                    "lat": lat,
+                    "lon": lng,
+                });
+                axios({
+                    method: "post",
+                    url: "http://127.0.0.1:5000/yelp_call",
+                    data: data,
+                    headers: {
+                        'Content-Type': "application/json"
+                    }
                 })
+                    .then(function (response) {
+                        //console.log(response.data)
+                        setPlaces(response.data)
+                        //console.log("object.keys:")
+                        //console.log(Object.keys(places))
+                        //console.log("keys[x]")
+                        //console.log(places["0"])
+                        //console.log(response.data['response']["0"]["address"])
+                    })
             }
         }
     }
@@ -147,6 +181,19 @@ const AppPage = () => {
                                 </ol>
                             </div>
                         } */}
+                        <button onClick={getYelp}>yelp</button>
+                        {places && <div className="results">{
+                            Object.keys(places).map((key, index) => (
+                                <div key={index} className="resultcard">
+                                    <h3>{places[key]["name"]}</h3>
+                                    <img className="resultpic" src={places[key]["image"]} alt={places[key]["name"]} />
+                                    <p>{places[key]["address"]}</p>
+                                </div>
+                            ))
+                        }
+                        </div>
+                        }
+
                     </div>
                 </div>
             </div>

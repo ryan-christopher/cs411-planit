@@ -12,6 +12,9 @@ from datetime import datetime #keep track when things are added to db
 from flask_login import LoginManager #Used Flask-Login to make a LoginManager class
 from flask_migrate import Migrate
 
+from dotenv import load_dotenv
+load_dotenv()
+
 login_manager = LoginManager() 
 
 app = Flask(__name__)
@@ -46,7 +49,7 @@ class Users(db.Model):
             'favorites': self.favorites
             })
 
-#Create a form clas for db
+#Create a form class for db
 class UserForm(FlaskForm):
     name = StringField("Name", validator=[DataRequired()])
     email = StringField("Email", validator=[DataRequired()])
@@ -149,6 +152,41 @@ def get_user_favorites():
     return json.loads(user.favorites), 200
 
 
+@app.route("/yelp_call", methods=['POST'])
+def yelp_call():
+    req = request.get_json()
+    if 'lat' not in req or 'lon' not in req:
+        return "Error: need lat and lon"
+    else:
+        lat = req['lat']
+        lon = req['lon']
+    url = "https://api.yelp.com/v3/businesses/search?latitude="+str(lat)+"&longitude="+str(lon)
+    payload={}
+    bearer = os.getenv("YELP_API_KEY")
+    headers = {
+         'Authorization': 'Bearer ' + str(bearer)
+    }
+    response = requests.request("GET", url, headers=headers, data=payload)
+    yelpresults = json.loads(response.text)
+    yelplist = {}
+
+    for i in range(10):
+        yelplist[str(i)] = {
+            "name": yelpresults['businesses'][i]['name'],
+            "image" : yelpresults['businesses'][i]['image_url'],
+            "coords" : yelpresults['businesses'][i]['coordinates']
+        }
+        address = ""
+        for x in range(len(yelpresults['businesses'][i]["location"]['display_address'])):
+            address += yelpresults['businesses'][i]["location"]['display_address'][x]
+            if x < len(yelpresults['businesses'][i]["location"]['display_address'])-1:
+                address += " "
+        yelplist[str(i)]["address"] = address
+    return yelplist, 200
+
 if __name__ == "__main__":
-    db.create_all()
+    #COMMENT OUT FOR TESTING ONLY
+    #db.create_all()
+    #yelp_call()
     app.run(debug=True)
+    

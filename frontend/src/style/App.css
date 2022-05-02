@@ -8,7 +8,7 @@ html {
 
 
 .App-header {
-  background-color: hsla(0, 0%, 0%, 0.6);
+  background-color: hsla(0, 0%, 0%, 0.75);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -87,8 +87,65 @@ div#response {
 }
 
 div.background {
-  background-image: url("../../public/pictures/chalkboard-bg.png");
+  background-image: url("../../public/pictures/paper.jpg");
   background-position: top;
   background-attachment: fixed;
   background-size: cover;
+}
+
+img.resultpic {
+  max-height: 300px;
+  max-width: 300px;
+  border-radius: 5px;
+}
+
+
+div.resultcard {
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 1px solid white;
+  transform: translateY(400px);
+  opacity: 1;
+}
+
+div.resultcard:nth-child(n+1) {
+  animation: appear 1.5s forwards;
+}
+
+div.resultcard:nth-child(n+2) {
+  animation: appear 1.5s forwards 0.2s;
+}
+
+div.resultcard:nth-child(n+3) {
+  animation: appear 1.5s forwards 0.4s;
+}
+
+div.resultcard:nth-child(n+4) {
+  animation: appear 1.5s forwards 0.6s;
+}
+
+div.resultcard:nth-child(n+5) {
+  animation: appear 1.5s forwards 0.8s;
+}
+
+div.resultcard:nth-child(n+6) {
+  animation: appear 1.5s forwards 1s;
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(400px) rotateZ(1deg);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px) rotateZ(0deg);
+    opacity: 1;
+  }
 }

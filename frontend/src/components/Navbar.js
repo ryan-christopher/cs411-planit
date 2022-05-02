@@ -81,7 +81,7 @@ function Navbar() {
 
     return (
         <div>
-            <Link to="/" className="cornerlogo">
+            <Link to="/" className="cornerlogo" onClick={Preloader}>
                 <img src="pictures/planit-logo.png" alt="Planit" />
             </Link>
 
