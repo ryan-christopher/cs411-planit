@@ -4,7 +4,6 @@ import AppPage from './pages/app';
 import About from './pages/about';
 import Team from './pages/team';
 import Home from './pages/index';
-import Navbar from './components/Navbar';
 import Profile from './pages/profile';
 import React from "react";
 
@@ -17,7 +16,7 @@ const App = () => {
         <Route path="app" element={<AppPage />} />
         <Route path="about" element={<About />} />
         <Route path="team" element={<Team />} />
-        <Route path="profile" element={<Profile />}/>
+        <Route path="profile" element={<Profile />} />
       </Routes>
     </div>
   );

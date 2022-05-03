@@ -27,8 +27,6 @@ const AppPage = () => {
     const [authenticated, setAuthenticated] = useState(false)
     const [places, setPlaces] = useState(false)
     const [name, setName] = useState(false)
-    const [user, setUser] = useState()
-    const [favorites, setFavorites] = useState()
 
     const checkAuth = () => {
         axios({

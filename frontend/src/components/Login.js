@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { GoogleLogin } from 'react-google-login'
 
 
