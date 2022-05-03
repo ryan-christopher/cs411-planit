@@ -1,0 +1,26 @@
+.directions {
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100vw);
+    transition: all 0.75s;
+}
+
+.directionCard {
+    min-width: 300px;
+    width: 40vw;
+    min-height: 500px;
+    height: 70vh;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.directions.active {
+    transform: translateX(0vw);
+    transition: all 0.75s;
+}

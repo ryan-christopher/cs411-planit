@@ -134,10 +134,12 @@ div.spacer {
 .flexparagraph {
     padding: 25px;
     margin-top: 8vh;
+    margin-bottom: 4vh;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 25vw;
+    min-height: 150px;
     min-width: 275px;
     background-color: rgba(0, 0, 0, 0.65);
     border-radius: 5px;
@@ -151,7 +153,7 @@ div.spacer {
     .flexcol2,
     .flexcol3 {
         width: 100vw;
-        height: 90vh;
+        min-height: 90vh;
     }
 
     .threecolflex {

@@ -56,11 +56,11 @@ function Home() {
                         <div className="colmask">
                             <h3 className="colheader">NEW</h3>
                             <MdOutlineAddLocationAlt className='icon' />
-                            <p className='flexparagraph'>
+                            <div className='flexparagraph'>
                                 <h3>keep things new</h3>
                                 <hr className="thinline2" />
                                 find new places for your day to day
-                            </p>
+                            </div>
                         </div>
 
                     </div>
@@ -68,10 +68,10 @@ function Home() {
                         <div className="colmask">
                             <h3 className="colheader">FUN</h3>
                             <CgSmileMouthOpen className='icon' />
-                            <p className='flexparagraph'>
+                            <div className='flexparagraph'>
                                 <h3>good times ahead</h3>
                                 <hr className="thinline2" />
-                                always have something to look forward to</p>
+                                always have something to look forward to</div>
                         </div>
 
                     </div>
@@ -79,10 +79,10 @@ function Home() {
                         <div className="colmask">
                             <h3 className="colheader">EASY</h3>
                             <IoListCircleOutline className='icon' />
-                            <p className='flexparagraph'>
+                            <div className='flexparagraph'>
                                 <h3>all in one</h3>
                                 <hr className="thinline2" />
-                                all your favorite places stored in one place</p>
+                                all your favorite places stored in one place</div>
                         </div>
 
                     </div>

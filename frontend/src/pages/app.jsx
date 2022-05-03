@@ -4,9 +4,11 @@ import { IoBeerOutline, IoFastFoodOutline } from 'react-icons/io5'
 import { TiTree } from 'react-icons/ti'
 import { GiWeightLiftingUp } from 'react-icons/gi'
 import '../style/App.css';
+import "../style/directions.css"
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Preloader from '../components/Preloader';
+import $ from 'jquery'
 
 var axios = require("axios");
 
@@ -22,7 +24,7 @@ const AppPage = () => {
     const [directions, setDirections] = useState(null);
     const [authenticated, setAuthenticated] = useState(false)
     const [places, setPlaces] = useState(false)
-
+    const [name, setName] = useState(false)
     const checkAuth = () => {
         axios({
             method: "GET",
@@ -50,13 +52,13 @@ const AppPage = () => {
                 method: "GET",
                 url: "https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + localStorage.getItem("accessToken")
             })
-            .then((response) => {
-                axios({
-                    method: "POST",
-                    url: "http://127.0.0.1:5000/register_google_data",
-                    data: response['data']
+                .then((response) => {
+                    axios({
+                        method: "POST",
+                        url: "http://127.0.0.1:5000/register_google_data",
+                        data: response['data']
+                    })
                 })
-            })
         }
     }
 
@@ -119,7 +121,7 @@ const AppPage = () => {
 
 
 
-    const getDirections = (dest_lat, dest_lon) => {
+    const getDirections = (dest_lat, dest_lon, name) => {
         if (authenticated) {
             if (lat === null || lng === null) {
                 window.alert("Please Get Your Location First!")
@@ -142,11 +144,14 @@ const AppPage = () => {
                     .then(function (response) {
                         console.log(response.data)
                         setDirections(response.data)
-                        console.log(directions)
+                        setName(name)
+                        //console.log(directions)
+                        $(".directions").toggleClass('active')
                     })
             }
         }
     }
+
 
     const getYelp = (category) => {
         if (authenticated) {
@@ -169,7 +174,7 @@ const AppPage = () => {
                     }
                 })
                     .then(function (response) {
-                        console.log(response.data)
+                        //console.log(response.data)
                         setPlaces(response.data)
                         //console.log("object.keys:")
                         //console.log(Object.keys(places))
@@ -186,12 +191,12 @@ const AppPage = () => {
         axios({
             method: "POST",
             url: "http://127.0.0.1:5000/add_favorite_to_user",
-            data: {"place": place, "accessToken": localStorage.getItem("accessToken")}
+            data: { "place": place, "accessToken": localStorage.getItem("accessToken") }
         })
-        .then(console.log(`added ${place['name']} to favorites!`))
-        .catch((error) => {
-            console.log(error)
-        })
+            .then(console.log(`added ${place['name']} to favorites!`))
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     return (
@@ -199,13 +204,31 @@ const AppPage = () => {
 
             <div className="background">
                 <Navbar />
+
+                <div className="directions">
+                    <div className="directionCard" id="directioncard">
+                        {directions &&
+                            <div>
+                                <h3>Directions to {name}</h3>
+                                <ol>
+                                    {Object.keys(directions).map((index) => (
+                                        (<li key={index}>{directions[index]}</li>)
+                                    ))}
+                                </ol>
+                            </div>}
+                    </div>
+                </div>
+
+
                 <div className="App-header">
                     <div className="App">
                         <div id="response"> <CgArrowLongDownR className="arrowDown" /> </div>
                         <button onClick={getLocation}>get location</button>
                         <p>{status}</p>
+                        {/* 
                         {lat && <p>Latitude: {lat}</p>}
                         {lng && <p>Longitude: {lng}</p>}
+                        */}
                         {/* <p>Enter an MBTA Bus or Train Line:</p>
                         <input type="text" onChange={(e) => setMBTAInput(e.target.value)} value={MBTAInput}></input>
                         <p />
@@ -213,16 +236,16 @@ const AppPage = () => {
                         {MBTALine && !invalidLine && <p>{MBTALine['data']['attributes']['direction_destinations'][0]} - {MBTALine['data']['attributes']['direction_destinations'][1]}</p>}
                         {invalidLine && <p>Error 404: Line named "{MBTAInput}" not found</p>}
                         {/* Tests getting route from coordinates, delete later */}
-                        {/* <button onClick={getDirections}>Get Directions</button>
-                        {directions && <p>Directions to Your Destination:</p> && 
+                        {/* <button onClick={getDirections}>Get Directions</button> 
+                        {directions && <p>Directions to Your Destination:</p> &&
                             <div>
                                 <ol>
-                                    {Object.keys(directions).map(({entry, idx}) => {
+                                    {Object.keys(directions).map(({ key, idx }) => {
                                         return (<li key={idx}>{idx}</li>)
                                     })}
                                 </ol>
                             </div>
-                        } */}
+                        }*/}
                         <button className="choicebutton" onClick={() => getYelp("restaurants")}>
                             find some food
                             <hr className="choiceline" />
@@ -243,19 +266,18 @@ const AppPage = () => {
                             <hr className="choiceline" />
                             <GiWeightLiftingUp className="buttonicon" id="gym" />
                         </button>
-                        {places && <div className="results">{
-                            Object.keys(places).map((key, index) => (
+                        {places && <div className="results">
+                            {Object.keys(places).map((key, index) => (
                                 <div key={index} className="resultcard">
                                     <h3>{places[key]["name"]}</h3>
                                     <img className="resultpic" src={places[key]["image"]} alt={places[key]["name"]} />
                                     <p>{places[key]["address"]}</p>
-                                    <button onClick={() => getDirections(places[key]["coords"]["latitude"], places[key]["coords"]["longitude"])}>Get Directions</button>
-                                    <br></br>
-                                    <br></br>
+                                    <button onClick={() => getDirections(places[key]["coords"]["latitude"], places[key]["coords"]["longitude"], places[key]["name"])}>Get Directions</button>
+                                    <br />
                                     <button onClick={() => addToFavorites(places[key])}>Add to Favorites</button>
                                 </div>
                             ))
-                        }
+                            }
                         </div>
                         }
 
@@ -263,8 +285,14 @@ const AppPage = () => {
                 </div>
             </div>
             <Footer />
-        </div>
+        </div >
     );
 }
+
+(function () {
+    $(document).on("click", ".directions", function () {
+        $(".directions").toggleClass('active');
+    });
+}).call(this);
 
 export default AppPage;

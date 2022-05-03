@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from "../components/Navbar"
 
 var axios = require("axios");
@@ -37,12 +37,12 @@ function Profile() {
             axios({
                 method: "POST",
                 url: "http://127.0.0.1:5000/get_user",
-                data: {'accessToken': localStorage.getItem("accessToken")}
+                data: { 'accessToken': localStorage.getItem("accessToken") }
             })
-            .then((response) => {
-                setUser(response.data)
-                setFavorites(response.data['favorites'])
-            })
+                .then((response) => {
+                    setUser(response.data)
+                    setFavorites(response.data['favorites'])
+                })
         }
     }
 
@@ -51,19 +51,19 @@ function Profile() {
         getUserProfile();
     }, [authenticated])
 
-    
+
     // delete a venue from a user's favorites
     const deleteFavorite = (venueName) => {
         axios({
             method: "POST",
             url: "http://127.0.0.1:5000/remove_favorite_from_user",
-            data: {'accessToken': localStorage.getItem("accessToken"), "name": venueName}
+            data: { 'accessToken': localStorage.getItem("accessToken"), "name": venueName }
         })
-        .then(() => {
-            console.log("successfully removed favorite")
-            window.location.reload(false)
-        })
-        .catch((error) => console.log(error))
+            .then(() => {
+                console.log("successfully removed favorite")
+                window.location.reload(false)
+            })
+            .catch((error) => console.log(error))
     }
 
     return (
@@ -77,18 +77,17 @@ function Profile() {
             <h2>Favorites:</h2>
             {user && (favorites === null || (favorites && Object.keys(favorites).length < 1)) && <p>No Favorites Added, Go Discover Some Places!</p>}
             {user && favorites && Object.keys(favorites).length >= 1 && <div className="results">{
-                            Object.keys(favorites).map((key, index) => (
-                                <div key={index} className="resultcard">
-                                    <h3>{favorites[key]["name"]}</h3>
-                                    <img className="resultpic" src={favorites[key]["image"]} alt={favorites[key]["name"]} />
-                                    <p>{favorites[key]["address"]}</p>
-                                    <br></br>
-                                    <br></br>
-                                    <button onClick={() => deleteFavorite(favorites[key]['name'])}>Remove from Favorites</button>
-                                </div>
-                            ))
-                        }
-                        </div>
+                Object.keys(favorites).map((key, index) => (
+                    <div key={index} className="resultcard">
+                        <h3>{favorites[key]["name"]}</h3>
+                        <img className="resultpic" src={favorites[key]["image"]} alt={favorites[key]["name"]} />
+                        <p>{favorites[key]["address"]}</p>
+                        <br />
+                        <button onClick={() => deleteFavorite(favorites[key]['name'])}>Remove from Favorites</button>
+                    </div>
+                ))
+            }
+            </div>
             }
         </div>
     )
