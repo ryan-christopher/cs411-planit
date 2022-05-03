@@ -40,6 +40,12 @@ h3 {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+#profilemask {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
 div.header-section {
     width: 100vw;
     min-height: 100vh;
@@ -51,6 +57,15 @@ div#team {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+div#profile {
+    background-image: url("../../public/pictures/cafe.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
 
 .flex-container-left-right {
     display: flex;
@@ -148,6 +163,24 @@ div#content {
     margin-right: auto;
 }
 
+.thinline3 {
+    height: 1px;
+    border-radius: 0px;
+    color: white;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 1px;
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    height: 2px;
+    width: 15vw;
+    min-width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .flex-container-left-right>.flex-item-right>p {
     margin-top: 110px;
     text-align: right;
@@ -166,6 +199,14 @@ div#content {
 @media (max-width: 1000px) {
     .flex-container-left-right {
         flex-direction: column;
+    }
+
+    .resultcard {
+        flex-direction: column;
+    }
+
+    .flexaddress {
+        margin-top: 30px;
     }
 
     .flex-container-left-right>.flex-item-right>p {
@@ -191,4 +232,24 @@ div#content {
     h4.footertextsmall {
         padding-bottom: 20px;
     }
+}
+
+h2.username {
+    margin-top: 100px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+table {
+    width: 100vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+th {
+    width: 50vw;
 }

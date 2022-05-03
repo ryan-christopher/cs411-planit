@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Takota";
+  src: url("./takota-font/Takota-BRa8.ttf") format("truetype");
+}
+
 .App {
   text-align: center;
 }
@@ -41,6 +46,7 @@ button {
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: white;
+  border: 2px solid white;
   border-radius: 5px;
   color: black;
   transition: all 0.4s;
@@ -48,6 +54,7 @@ button {
 
 button:hover {
   transform: scale(1.2);
+  background-color: rgb(177, 177, 177);
   transition: all 0.4s;
 }
 
@@ -95,6 +102,11 @@ button.choicebutton:hover>.buttonicon {
   animation: bounce 3s infinite;
 }
 
+.gotlocation {
+  font-size: 80px;
+  color: rgb(49, 177, 49);
+}
+
 .choiceline {
   height: 2px;
   border-radius: 0px;
@@ -110,12 +122,20 @@ button.choicebutton:hover>#food {
   color: rgb(219, 46, 46);
 }
 
-#drink {
-  border-color: rgb(248, 230, 34);
+#show {
+  border-color: rgb(112, 44, 142);
 }
 
-button.choicebutton:hover>#drink {
-  color: rgb(248, 230, 34);
+button.choicebutton:hover>#show {
+  color: rgb(112, 44, 142);
+}
+
+#coffee {
+  border-color: rgb(139, 126, 108);
+}
+
+button.choicebutton:hover>#coffee {
+  color: rgb(139, 126, 108);
 }
 
 #tree {
@@ -132,6 +152,22 @@ button.choicebutton:hover>#tree {
 
 button.choicebutton:hover>#gym {
   color: rgb(21, 147, 232);
+}
+
+#directions {
+  border-color: rgb(97, 181, 237);
+}
+
+button.choicebutton:hover>#directions {
+  color: rgb(97, 181, 237);
+}
+
+#favicon {
+  border-color: rgb(227, 55, 61);
+}
+
+button.choicebutton:hover>#favicon {
+  color: rgb(227, 55, 61);
 }
 
 @keyframes bounce {
@@ -175,16 +211,31 @@ img.resultpic {
   max-height: 300px;
   max-width: 300px;
   border-radius: 5px;
+  padding: 10px;
+  border: 2px solid white;
 }
 
+h3.displayname {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+div.results {
+  padding: 30px;
+  margin-top: 20px;
+  width: 90vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 div.resultcard {
   margin: 20px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  border: 1px solid white;
   transform: translateY(400px);
+  display: flex;
   opacity: 1;
 }
 
@@ -226,4 +277,56 @@ div.resultcard:nth-child(n+6) {
     transform: translateY(0px) rotateZ(0deg);
     opacity: 1;
   }
+}
+
+.directionheader {
+  font-family: "Takota";
+  margin-bottom: 5px;
+  font-size: 35px;
+}
+
+.directionheadername {
+  font-size: 50px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+ol {
+  text-align: left;
+  margin-left: 5vw;
+  font-size: 23px;
+}
+
+li {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.directionclose {
+  position: relative;
+  font-size: 45px;
+  top: 1vh;
+  left: 16vw;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.directionclose:hover {
+  color: #BB0502;
+  transform: scale(1.2);
+  transition: all 0.2s;
+}
+
+.favicon {
+  color: #BB0502;
+  font-size: 50px;
+}
+
+.favbutton {
+  background-color: transparent;
+}
+
+.flexaddress {
+  margin-top: 150px;
+  font-size: 25px;
 }

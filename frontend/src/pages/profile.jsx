@@ -1,6 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Navbar from "../components/Navbar"
+import { MdOutlineDeleteForever } from "react-icons/md"
+import "../style/pages.css"
+import '../style/App.css';
 
 var axios = require("axios");
 
@@ -69,26 +72,50 @@ function Profile() {
     return (
         <div>
             <Navbar />
-            {user && <h1>{user['name']}</h1>}
-            {user && <h4>{user['email']}</h4>}
-            {user && <p>Date Joined: {user['date_added']}</p>}
-            <br></br>
-            <br></br>
-            <h2>Favorites:</h2>
-            {user && (favorites === null || (favorites && Object.keys(favorites).length < 1)) && <p>No Favorites Added, Go Discover Some Places!</p>}
-            {user && favorites && Object.keys(favorites).length >= 1 && <div className="results">{
-                Object.keys(favorites).map((key, index) => (
-                    <div key={index} className="resultcard">
-                        <h3>{favorites[key]["name"]}</h3>
-                        <img className="resultpic" src={favorites[key]["image"]} alt={favorites[key]["name"]} />
-                        <p>{favorites[key]["address"]}</p>
-                        <br />
-                        <button onClick={() => deleteFavorite(favorites[key]['name'])}>Remove from Favorites</button>
+            <div className="header-section" id="profile">
+                <div id="profilemask">
+                    {user && <h2 className="username">{user['name']}</h2>}
+                    <table>
+                        <tr>
+                            <th>
+                                {user && <h4>{user['email']}</h4>}
+                            </th>
+                            <th>
+                                {user && <h4>Date Joined: {user['date_added']}</h4>}
+                            </th>
+                        </tr>
+                    </table>
+
+                    <br></br>
+
+                    {user && (favorites === null || (favorites && Object.keys(favorites).length < 1)) && <p>No Favorites Added, Go Discover Some Places!</p>}
+                    {user && favorites && Object.keys(favorites).length >= 1 && <div className="results">
+                        <h2>Favorites</h2>
+                        {Object.keys(favorites).map((key, index) => (<div>
+                            <div key={index} className="resultcard">
+                                <div className="flex-item-left">
+                                    <h3>{favorites[key]["name"]}</h3>
+                                    <img className="resultpic" src={favorites[key]["image"]} alt={favorites[key]["name"]} />
+                                </div>
+                                <div className="flex-item-right">
+                                    <p className="flexaddress">{favorites[key]["address"]}</p>
+                                    <br />
+                                    <button className="choicebutton"
+                                        onClick={() => deleteFavorite(favorites[key]['name'])}>
+                                        Delete
+                                        <hr className="choiceline" />
+                                        <MdOutlineDeleteForever className='buttonicon' id="favicon" />
+                                    </button>
+                                </div>
+                            </div>
+                            <hr className="thinline" />
+                        </div>
+                        ))
+                        }
                     </div>
-                ))
-            }
+                    }
+                </div>
             </div>
-            }
         </div>
     )
 }

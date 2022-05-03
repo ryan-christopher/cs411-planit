@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { CgArrowLongDownR } from 'react-icons/cg';
-import { IoBeerOutline, IoFastFoodOutline } from 'react-icons/io5'
+import { IoCafe, IoFastFoodOutline, IoCloseCircleOutline, IoLocationOutline, IoMapOutline } from 'react-icons/io5'
+import { IoMdHeartEmpty } from "react-icons/io"
 import { TiTree } from 'react-icons/ti'
-import { GiWeightLiftingUp } from 'react-icons/gi'
+import { GiWeightLiftingUp, GiGuitarBassHead } from 'react-icons/gi'
 import '../style/App.css';
 import "../style/directions.css"
+import "../style/pages.css"
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Preloader from '../components/Preloader';
@@ -25,6 +27,9 @@ const AppPage = () => {
     const [authenticated, setAuthenticated] = useState(false)
     const [places, setPlaces] = useState(false)
     const [name, setName] = useState(false)
+    const [user, setUser] = useState()
+    const [favorites, setFavorites] = useState()
+
     const checkAuth = () => {
         axios({
             method: "GET",
@@ -207,9 +212,12 @@ const AppPage = () => {
 
                 <div className="directions">
                     <div className="directionCard" id="directioncard">
+                        <IoCloseCircleOutline className="directionclose" />
                         {directions &&
                             <div>
-                                <h3>Directions to {name}</h3>
+                                <h3 className="directionheader">Directions to: </h3>
+                                <h3 className="directionheadername">{name}</h3>
+                                <hr className="thinline" />
                                 <ol>
                                     {Object.keys(directions).map((index) => (
                                         (<li key={index}>{directions[index]}</li>)
@@ -222,9 +230,21 @@ const AppPage = () => {
 
                 <div className="App-header">
                     <div className="App">
-                        <div id="response"> <CgArrowLongDownR className="arrowDown" /> </div>
-                        <button onClick={getLocation}>get location</button>
-                        <p>{status}</p>
+
+                        {!lat &&
+                            <div>
+                                <div id="response"> <CgArrowLongDownR className="arrowDown" /> </div>
+                                <button onClick={getLocation}>get location</button>
+                            </div>
+                        }
+
+                        {lat &&
+                            <div>
+                                <div id="response"> <IoLocationOutline className="gotlocation" /> </div>
+                                <h3>What do you feel like doing?</h3>
+                            </div>
+                        }
+
                         {/* 
                         {lat && <p>Latitude: {lat}</p>}
                         {lng && <p>Longitude: {lng}</p>}
@@ -251,10 +271,15 @@ const AppPage = () => {
                             <hr className="choiceline" />
                             <IoFastFoodOutline className="buttonicon" id="food" />
                         </button>
-                        <button className="choicebutton" onClick={() => getYelp("bars")}>
-                            get a drink
+                        <button className="choicebutton" onClick={() => getYelp("coffee")}>
+                            get a coffee
                             <hr className="choiceline" />
-                            <IoBeerOutline className="buttonicon" id="drink" />
+                            <IoCafe className="buttonicon" id="coffee" />
+                        </button>
+                        <button className="choicebutton" onClick={() => getYelp("concerts")}>
+                            see a show
+                            <hr className="choiceline" />
+                            <GiGuitarBassHead className="buttonicon" id="show" />
                         </button>
                         <button className="choicebutton" onClick={() => getYelp("parks")}>
                             get outside
@@ -266,16 +291,33 @@ const AppPage = () => {
                             <hr className="choiceline" />
                             <GiWeightLiftingUp className="buttonicon" id="gym" />
                         </button>
+
                         {places && <div className="results">
-                            {Object.keys(places).map((key, index) => (
+                            {Object.keys(places).map((key, index) => (<div>
                                 <div key={index} className="resultcard">
-                                    <h3>{places[key]["name"]}</h3>
-                                    <img className="resultpic" src={places[key]["image"]} alt={places[key]["name"]} />
-                                    <p>{places[key]["address"]}</p>
-                                    <button onClick={() => getDirections(places[key]["coords"]["latitude"], places[key]["coords"]["longitude"], places[key]["name"])}>Get Directions</button>
-                                    <br />
-                                    <button onClick={() => addToFavorites(places[key])}>Add to Favorites</button>
+                                    <div className="flex-item-left">
+                                        <h3 className="displayname">{places[key]["name"]}</h3>
+                                        <hr className="thinline3" />
+                                        <img className="resultpic" src={places[key]["image"]} alt={places[key]["name"]} />
+                                    </div>
+                                    <div className="flex-item-right">
+                                        <p className="flexaddress">{places[key]["address"]}</p>
+                                        <button className="choicebutton"
+                                            onClick={() => getDirections(places[key]["coords"]["latitude"], places[key]["coords"]["longitude"], places[key]["name"])}>
+                                            Get Directions
+                                            <hr className="choiceline" />
+                                            <IoMapOutline className="buttonicon" id="directions" />
+                                        </button>
+                                        <button className="choicebutton"
+                                            onClick={() => addToFavorites(places[key])}>
+                                            Favorite
+                                            <hr className="choiceline" />
+                                            <IoMdHeartEmpty className='buttonicon' id="favicon" />
+                                        </button>
+                                    </div>
                                 </div>
+                                <hr className="thinline" />
+                            </div>
                             ))
                             }
                         </div>
