@@ -22,7 +22,7 @@ Once you have the three keys, you will need to create three .env files. One in t
 
 ### Installing Required Packages:
 
-In order to ensure that your machine has the required packages, there are two steps. For the backend, open a terminal in the backend folder and run the commmand "pip install -r requirements.txt" to install the required python packages. Then navigate to the frontend folder and run the command "npm install" to install the required node packages. 
+In order to ensure that your machine has the required packages, there are two steps. For the backend, open a terminal in the backend folder and run the command "pip install -r requirements.txt" to install the required python packages. Then navigate to the frontend folder and run the command "npm install" to install the required node packages. 
 
 
 ### Running the project:
